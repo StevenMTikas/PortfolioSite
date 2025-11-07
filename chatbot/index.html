@@ -109,7 +109,9 @@
       // Use a placeholder to protect links from italic processing
       const linkPlaceholders = [];
       formatted = formatted.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (match, linkText, url) => {
-        const placeholder = `__LINK_PLACEHOLDER_${linkPlaceholders.length}__`;
+        const index = linkPlaceholders.length;
+        // Use a unique placeholder that won't conflict with markdown
+        const placeholder = `{{LINK${index}}}`;
         linkPlaceholders.push(`<a href="${url}" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 underline">${linkText}</a>`);
         return placeholder;
       });
@@ -117,11 +119,6 @@
       // Italic: *text* or _text_ (process after links to avoid conflicts)
       formatted = formatted.replace(/(?<!\*)\*([^*\n]+?)\*(?!\*)/g, '<em>$1</em>');
       formatted = formatted.replace(/(?<!_)_([^_\n]+?)_(?!_)/g, '<em>$1</em>');
-      
-      // Restore links from placeholders
-      linkPlaceholders.forEach((link, index) => {
-        formatted = formatted.replace(`__LINK_PLACEHOLDER_${index}__`, link);
-      });
       
       // Split into paragraphs first (double line breaks)
       const paragraphs = formatted.split(/\n\n+/);
@@ -157,7 +154,16 @@
         }
       });
       
-      return processedParagraphs.join('');
+      // Restore links from placeholders AFTER all processing is complete
+      let finalOutput = processedParagraphs.join('');
+      linkPlaceholders.forEach((link, index) => {
+        const placeholder = `{{LINK${index}}}`;
+        // Use global replace with regex to ensure all instances are replaced
+        const placeholderRegex = new RegExp(placeholder.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g');
+        finalOutput = finalOutput.replace(placeholderRegex, link);
+      });
+      
+      return finalOutput;
     }
 
     function addMessage(text, isUser = false) {

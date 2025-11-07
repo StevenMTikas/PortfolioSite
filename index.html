@@ -186,7 +186,7 @@
           <p class="text-slate-400 mb-4">An AI-powered NFL team analysis and game prediction system using CrewAI. Select two teams to get comprehensive analysis including statistics, injury reports, coaching strategies, and predictions.</p>
           <div class="flex flex-col gap-2 mb-3">
             <a href="https://nfl-picker.onrender.com" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 transition-colors">View Project →</a>
-            <a href="nfl_picker/README.md" class="text-blue-400 hover:text-blue-300 transition-colors text-sm">View README →</a>
+            <a href="https://github.com/StevenMTikas/nfl_picker/blob/main/README.md" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 transition-colors text-sm">View README →</a>
           </div>
           <p class="text-slate-500 text-xs italic border-t border-slate-700 pt-2">
             Warning: This may fail due to where it is hosted and the pricing tier I'm on it will sometime time out.  I have a working desktop application I can send if you are interested just e-mail me at the e-mail at bottom of the page
@@ -195,12 +195,14 @@
 
         <!-- Project Card 3 -->
         <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700 hover:border-blue-500 transition-all hover:shadow-xl hover:shadow-blue-500/20">
-          <div class="w-12 h-12 bg-green-500 rounded-lg mb-4 flex items-center justify-center text-2xl">
-            💻
+          <div class="w-12 h-12 bg-cyan-500 rounded-lg mb-4 flex items-center justify-center text-2xl">
+            💬
           </div>
-          <h3 class="text-xl font-semibold text-white mb-2">Coming Soon</h3>
-          <p class="text-slate-400 mb-4">More exciting projects are on the way. Check back soon for updates!</p>
-          <p class="text-slate-500 text-xs italic">Stay tuned for new projects and updates.</p>
+          <h3 class="text-xl font-semibold text-white mb-2">MeBot - Ask About Steven</h3>
+          <p class="text-slate-400 mb-4">An AI-powered chatbot that answers questions about my experience, skills, projects, and background. Built with LangChain, OpenAI, and FastAPI, using RAG (Retrieval-Augmented Generation) to provide accurate information from my bio, resume, and GitHub repositories.</p>
+          <div class="flex flex-col gap-2 mb-3">
+            <a href="https://portfoliosite-6lw5.onrender.com/" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 transition-colors">View Project →</a>
+          </div>
         </div>
 
         <!-- Project Card 4 -->
@@ -804,6 +806,13 @@
       }
     }
 
+    // Determine chatbot API URL based on environment
+    // Use production URL if not on localhost, otherwise use localhost for development
+    const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+    const chatbotApiUrl = isLocalhost 
+      ? 'http://localhost:8000/api/ask'
+      : 'https://portfoliosite-6lw5.onrender.com/api/ask';
+
     // Handle form submission
     chatForm.addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -820,7 +829,7 @@
       
       try {
         // Call the chatbot API
-        const response = await fetch('http://localhost:8000/api/ask', {
+        const response = await fetch(chatbotApiUrl, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -841,7 +850,10 @@
       } catch (error) {
         removeLoadingMessage();
         console.error('Error calling chatbot API:', error);
-        addMessage("Sorry, I'm having trouble connecting to the server. Please make sure the backend server is running on http://localhost:8000");
+        const errorMessage = isLocalhost
+          ? "Sorry, I'm having trouble connecting to the server. Please make sure the backend server is running on http://localhost:8000"
+          : "Sorry, I'm having trouble connecting to the chatbot server. Please try again later or contact me if the issue persists.";
+        addMessage(errorMessage);
       } finally {
         chatInput.disabled = false;
         chatInput.focus();
