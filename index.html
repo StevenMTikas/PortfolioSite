@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Steven Tikas - Portfolio</title>
+
+  <!-- Tailwind CDN for quick styling -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Prism.js for code highlighting -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+
+  <!-- Simple Icons CDN for brand icons -->
+  <style>
+    .skill-icon {
+      width: 20px;
+      height: 20px;
+      display: inline-block;
+      vertical-align: middle;
+    }
+  </style>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="bg-slate-950 text-white min-h-screen">
+  <!-- ====== Navigation Menu ====== -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-slate-900/95 backdrop-blur-sm border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="text-xl font-semibold text-white">
+          Steven Tikas
+    </div>
+        
+        <!-- Desktop Navigation -->
+        <div class="hidden md:flex space-x-8">
+          <a href="#home" class="nav-link text-slate-300 hover:text-blue-400 transition-colors">Home</a>
+          <a href="#about" class="nav-link text-slate-300 hover:text-blue-400 transition-colors">About</a>
+          <a href="#blog" class="nav-link text-slate-300 hover:text-blue-400 transition-colors">Blog</a>
+          <a href="#projects" class="nav-link text-slate-300 hover:text-blue-400 transition-colors">Projects</a>
+          <a href="#skills" class="nav-link text-slate-300 hover:text-blue-400 transition-colors">Skills</a>
+          <a href="#contact" class="nav-link text-slate-300 hover:text-blue-400 transition-colors">Contact</a>
+      </div>
+
+        <!-- Mobile Menu Button -->
+        <button id="mobileMenuToggle" class="md:hidden text-slate-300 hover:text-white">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile Navigation -->
+      <div id="mobileMenu" class="mobile-menu md:hidden">
+        <div class="py-4 space-y-2">
+          <a href="#home" class="block px-4 py-2 text-slate-300 hover:text-blue-400 transition-colors">Home</a>
+          <a href="#about" class="block px-4 py-2 text-slate-300 hover:text-blue-400 transition-colors">About</a>
+          <a href="#blog" class="block px-4 py-2 text-slate-300 hover:text-blue-400 transition-colors">Blog</a>
+          <a href="#projects" class="block px-4 py-2 text-slate-300 hover:text-blue-400 transition-colors">Projects</a>
+          <a href="#skills" class="block px-4 py-2 text-slate-300 hover:text-blue-400 transition-colors">Skills</a>
+          <a href="#contact" class="block px-4 py-2 text-slate-300 hover:text-blue-400 transition-colors">Contact</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ====== Hero Section ====== -->
+  <section id="home" class="pt-24 pb-16 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex flex-col lg:flex-row items-center justify-between gap-12">
+        <div class="flex-1 text-center lg:text-left">
+          <h1 class="text-4xl md:text-6xl font-bold text-white mb-4">
+            Hello, I'm <span class="text-blue-400">Steven Tikas</span>
+          </h1>
+          <h2 class="text-2xl md:text-4xl text-slate-300 mb-6">
+            I'm a <span id="typing-text" class="text-blue-400"></span>
+        </h2>
+          <p class="text-lg text-slate-400 mb-8 max-w-2xl">
+            Welcome to my personal website where I showcase my work and skills.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+            <a href="#contact" class="px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition-colors font-medium">
+              Contact Me
+            </a>
+            <a href="#projects" class="px-6 py-3 bg-slate-800 hover:bg-slate-700 text-white rounded-lg transition-colors font-medium border border-slate-700">
+              View My Work
+            </a>
+          </div>
+        </div>
+        <div class="flex-1 flex justify-center lg:justify-end">
+          <img src="images/cover_image.jpg" 
+               alt="Steven Tikas" 
+               class="w-64 h-64 md:w-80 md:h-80 rounded-full object-cover shadow-2xl border-4 border-slate-700">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== About Section ====== -->
+  <section id="about" class="py-20 px-4 sm:px-6 lg:px-8 bg-slate-900/50">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">About Me</h2>
+      <p class="text-center text-slate-400 mb-12">Get to know me!</p>
+
+      <div class="grid md:grid-cols-2 gap-12 items-start">
+        <div class="space-y-6">
+          <p class="text-lg text-slate-300 leading-relaxed">
+            Steven Tikas is a AI Context Engineer, Data Scientist, and web developer—constantly evolving and passionate about learning new frontiers.
+          </p>
+          <p class="text-lg text-slate-300 leading-relaxed">
+            I specialize in creating AI solutions for small and large projects. I combine analytical thinking and technical skills to deliver outstanding results.
+          </p>
+          <p class="text-lg text-slate-300 leading-relaxed">
+            I come from a background of over 20 years of experience in Technical Support, Customer Service, and Manufacturing.  I'm looking to the future and see how AI is changing everything and want to be part of a company that sees that as well and is ready to use it to better their business and their customers lives.
+          </p>
+          <p class="text-lg text-slate-300 leading-relaxed">
+            When I'm not working, you can find me exploring new technologies, contributing to open-source projects, or reading books.
+          </p>
+    </div>
+
+        <div class="flex flex-col">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700 flex flex-col">
+              <h3 class="text-xl font-semibold text-white mb-2">Education</h3>
+              <p class="text-slate-400">B.S. in Information Technology from University of Phoenix</p>
+            </div>
+            <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700 flex flex-col">
+              <h3 class="text-xl font-semibold text-white mb-2">Location</h3>
+              <p class="text-slate-400">Jacksonville, FL</p>
+            </div>
+            <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700 flex flex-col">
+              <h3 class="text-xl font-semibold text-white mb-2">Experience</h3>
+              <p class="text-slate-400">AI Engineer</p>
+            </div>
+            <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700 flex flex-col">
+              <h3 class="text-xl font-semibold text-white mb-2">Languages</h3>
+              <p class="text-slate-400">Python, HTML/CSS/Javascript, SQL</p>
+            </div>
+          </div>
+          <div class="mt-6">
+            <a href="assets/Steven_Tikas_IT_Operations_Analyst.pdf" target="_blank" rel="noopener noreferrer" class="w-full inline-block px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition-colors font-medium text-center">
+              Resume
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== Projects Section ====== -->
+  <section id="projects" class="py-20 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">My Projects</h2>
+      <p class="text-center text-slate-400 mb-12">Some of my recent work</p>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Project Card 1 -->
+        <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700 hover:border-blue-500 transition-all hover:shadow-xl hover:shadow-blue-500/20">
+          <div class="w-12 h-12 bg-blue-500 rounded-lg mb-4 flex items-center justify-center text-2xl">
+            🤖
+          </div>
+          <h3 class="text-xl font-semibold text-white mb-2">YouTube Product Crew</h3>
+          <p class="text-slate-400 mb-4">A CrewAI-powered multi-agent system that automates YouTube product review content creation. Generates research reports, scripts, SEO keywords, titles, descriptions, and product images,</p>
+          <div class="flex flex-col gap-2 mb-3">
+            <a href="https://youtube-product-crew.onrender.com/" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 transition-colors">View Project →</a>
+            <a href="https://github.com/StevenMTikas/youtube-product-crew/blob/main/README.md" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 transition-colors text-sm">View README →</a>
+            <a href="https://youtu.be/EE7fQ6xisac" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 transition-colors text-sm">📹 Watch Example Video →</a>
+          </div>
+          <p class="text-slate-500 text-xs italic border-t border-slate-700 pt-2">
+            This video was created with content generated from this site including all images, title, description, subtitles, voiceover,etc. Took ~30 minutes and cost $0.32 (mostly due to DALL-E image generation).
+          </p>
+          <p class="text-slate-500 text-xs italic border-t border-slate-700 pt-2 mt-2">
+            Note: This demo version does not generate actual files to prevent excessive API usage and costs.
+          </p>
+        </div>
+
+        <!-- Project Card 2 -->
+        <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700 hover:border-blue-500 transition-all hover:shadow-xl hover:shadow-blue-500/20">
+          <div class="w-12 h-12 bg-purple-500 rounded-lg mb-4 flex items-center justify-center text-2xl">
+            🏈
+          </div>
+          <h3 class="text-xl font-semibold text-white mb-2">NFL Picker</h3>
+          <p class="text-slate-400 mb-4">An AI-powered NFL team analysis and game prediction system using CrewAI. Select two teams to get comprehensive analysis including statistics, injury reports, coaching strategies, and predictions.</p>
+          <div class="flex flex-col gap-2 mb-3">
+            <a href="https://nfl-picker.onrender.com" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 transition-colors">View Project →</a>
+            <a href="nfl_picker/README.md" class="text-blue-400 hover:text-blue-300 transition-colors text-sm">View README →</a>
+          </div>
+          <p class="text-slate-500 text-xs italic border-t border-slate-700 pt-2">
+            Warning: This may fail due to where it is hosted and the pricing tier I'm on it will sometime time out.  I have a working desktop application I can send if you are interested just e-mail me at the e-mail at bottom of the page
+          </p>
+        </div>
+
+        <!-- Project Card 3 -->
+        <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700 hover:border-blue-500 transition-all hover:shadow-xl hover:shadow-blue-500/20">
+          <div class="w-12 h-12 bg-green-500 rounded-lg mb-4 flex items-center justify-center text-2xl">
+            💻
+          </div>
+          <h3 class="text-xl font-semibold text-white mb-2">Coming Soon</h3>
+          <p class="text-slate-400 mb-4">More exciting projects are on the way. Check back soon for updates!</p>
+          <p class="text-slate-500 text-xs italic">Stay tuned for new projects and updates.</p>
+        </div>
+
+        <!-- Project Card 4 -->
+        <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700 hover:border-blue-500 transition-all hover:shadow-xl hover:shadow-blue-500/20">
+          <div class="w-12 h-12 bg-orange-500 rounded-lg mb-4 flex items-center justify-center text-2xl">
+            🔧
+          </div>
+          <h3 class="text-xl font-semibold text-white mb-2">Coming Soon</h3>
+          <p class="text-slate-400 mb-4">More exciting projects are on the way. Check back soon for updates!</p>
+          <p class="text-slate-500 text-xs italic">Stay tuned for new projects and updates.</p>
+        </div>
+
+        <!-- Project Card 5 -->
+        <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700 hover:border-blue-500 transition-all hover:shadow-xl hover:shadow-blue-500/20">
+          <div class="w-12 h-12 bg-cyan-500 rounded-lg mb-4 flex items-center justify-center text-2xl">
+            🎨
+          </div>
+          <h3 class="text-xl font-semibold text-white mb-2">Coming Soon</h3>
+          <p class="text-slate-400 mb-4">More exciting projects are on the way. Check back soon for updates!</p>
+          <p class="text-slate-500 text-xs italic">Stay tuned for new projects and updates.</p>
+        </div>
+
+        <!-- Project Card 6 -->
+        <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700 hover:border-blue-500 transition-all hover:shadow-xl hover:shadow-blue-500/20">
+          <div class="w-12 h-12 bg-pink-500 rounded-lg mb-4 flex items-center justify-center text-2xl">
+            🌐
+          </div>
+          <h3 class="text-xl font-semibold text-white mb-2">Coming Soon</h3>
+          <p class="text-slate-400 mb-4">More exciting projects are on the way. Check back soon for updates!</p>
+          <p class="text-slate-500 text-xs italic">Stay tuned for new projects and updates.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== Skills Section ====== -->
+  <section id="skills" class="py-20 px-4 sm:px-6 lg:px-8 bg-slate-900/50">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">My Skills</h2>
+      <p class="text-center text-slate-400 mb-12">Technologies and tools I work with</p>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Programming & Data -->
+        <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700">
+          <h3 class="text-xl font-semibold text-white mb-4">Programming & Data</h3>
+          <div class="space-y-4">
+            <div>
+              <div class="flex justify-between items-center mb-1">
+                <div class="flex items-center gap-2">
+                  <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/python.svg" alt="Python" class="skill-icon" style="filter: brightness(0) saturate(100%) invert(59%) sepia(95%) saturate(1352%) hue-rotate(173deg) brightness(101%) contrast(101%);">
+                  <span class="text-slate-300">Python</span>
+                </div>
+                <span class="text-slate-400 text-sm">Advanced</span>
+              </div>
+              <div class="w-full bg-slate-700 rounded-full h-2">
+                <div class="bg-blue-500 h-2 rounded-full skill-progress" style="width: 90%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between items-center mb-1">
+                <div class="flex items-center gap-2">
+                  <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/mysql.svg" alt="SQL" class="skill-icon" style="filter: brightness(0) saturate(100%) invert(59%) sepia(95%) saturate(1352%) hue-rotate(173deg) brightness(101%) contrast(101%);">
+                  <span class="text-slate-300">SQL</span>
+                </div>
+                <span class="text-slate-400 text-sm">Advanced</span>
+              </div>
+              <div class="w-full bg-slate-700 rounded-full h-2">
+                <div class="bg-blue-500 h-2 rounded-full skill-progress" style="width: 85%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modeling & Machine Learning -->
+        <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700">
+          <h3 class="text-xl font-semibold text-white mb-4">Modeling & Machine Learning</h3>
+          <div class="space-y-4">
+            <div>
+              <div class="flex justify-between items-center mb-1">
+                <div class="flex items-center gap-2">
+                  <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/tensorflow.svg" alt="TensorFlow" class="skill-icon" style="filter: brightness(0) saturate(100%) invert(59%) sepia(95%) saturate(1352%) hue-rotate(173deg) brightness(101%) contrast(101%);">
+                  <span class="text-slate-300">TensorFlow</span>
+                </div>
+                <span class="text-slate-400 text-sm">Advanced</span>
+              </div>
+              <div class="w-full bg-slate-700 rounded-full h-2">
+                <div class="bg-blue-500 h-2 rounded-full skill-progress" style="width: 80%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between items-center mb-1">
+                <div class="flex items-center gap-2">
+                  <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/scikitlearn.svg" alt="scikit-learn" class="skill-icon" style="filter: brightness(0) saturate(100%) invert(59%) sepia(95%) saturate(1352%) hue-rotate(173deg) brightness(101%) contrast(101%);">
+                  <span class="text-slate-300">scikit-learn</span>
+                </div>
+                <span class="text-slate-400 text-sm">Advanced</span>
+              </div>
+              <div class="w-full bg-slate-700 rounded-full h-2">
+                <div class="bg-blue-500 h-2 rounded-full skill-progress" style="width: 80%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between items-center mb-1">
+                <div class="flex items-center gap-2">
+                  <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/matplotlib.svg" alt="matplotlib" class="skill-icon" style="filter: brightness(0) saturate(100%) invert(59%) sepia(95%) saturate(1352%) hue-rotate(173deg) brightness(101%) contrast(101%);">
+                  <span class="text-slate-300">matplotlib</span>
+                </div>
+                <span class="text-slate-400 text-sm">Advanced</span>
+              </div>
+              <div class="w-full bg-slate-700 rounded-full h-2">
+                <div class="bg-blue-500 h-2 rounded-full skill-progress" style="width: 80%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- MLOps & Deployment -->
+        <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700">
+          <h3 class="text-xl font-semibold text-white mb-4">MLOps & Deployment</h3>
+          <div class="space-y-4">
+            <div>
+              <div class="flex justify-between items-center mb-1">
+                <div class="flex items-center gap-2">
+                  <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/docker.svg" alt="Docker" class="skill-icon" style="filter: brightness(0) saturate(100%) invert(59%) sepia(95%) saturate(1352%) hue-rotate(173deg) brightness(101%) contrast(101%);">
+                  <span class="text-slate-300">Docker</span>
+                </div>
+                <span class="text-slate-400 text-sm">Advanced</span>
+              </div>
+              <div class="w-full bg-slate-700 rounded-full h-2">
+                <div class="bg-blue-500 h-2 rounded-full skill-progress" style="width: 80%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between items-center mb-1">
+                <div class="flex items-center gap-2">
+                  <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/fastapi.svg" alt="FastAPI" class="skill-icon" style="filter: brightness(0) saturate(100%) invert(59%) sepia(95%) saturate(1352%) hue-rotate(173deg) brightness(101%) contrast(101%);">
+                  <span class="text-slate-300">FastAPI</span>
+                </div>
+                <span class="text-slate-400 text-sm">Advanced</span>
+              </div>
+              <div class="w-full bg-slate-700 rounded-full h-2">
+                <div class="bg-blue-500 h-2 rounded-full skill-progress" style="width: 80%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Professional Skills -->
+        <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700">
+          <h3 class="text-xl font-semibold text-white mb-4">Professional Skills</h3>
+          <div class="space-y-4">
+            <div>
+              <div class="flex justify-between items-center mb-1">
+                <div class="flex items-center gap-2">
+                  <svg class="skill-icon" fill="currentColor" viewBox="0 0 24 24" style="color: #60a5fa;">
+                    <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/>
+                  </svg>
+                  <span class="text-slate-300">Communication</span>
+                </div>
+                <span class="text-slate-400 text-sm">Advanced</span>
+              </div>
+              <div class="w-full bg-slate-700 rounded-full h-2">
+                <div class="bg-blue-500 h-2 rounded-full skill-progress" style="width: 80%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between items-center mb-1">
+                <div class="flex items-center gap-2">
+                  <svg class="skill-icon" fill="currentColor" viewBox="0 0 24 24" style="color: #60a5fa;">
+                    <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+                  </svg>
+                  <span class="text-slate-300">Teamwork</span>
+                </div>
+                <span class="text-slate-400 text-sm">Advanced</span>
+              </div>
+              <div class="w-full bg-slate-700 rounded-full h-2">
+                <div class="bg-blue-500 h-2 rounded-full skill-progress" style="width: 80%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between items-center mb-1">
+                <div class="flex items-center gap-2">
+                  <svg class="skill-icon" fill="currentColor" viewBox="0 0 24 24" style="color: #60a5fa;">
+                    <path d="M9 21c0 .5.4 1 1 1h4c.6 0 1-.5 1-1v-1H9v1zm3-19C8.1 2 5 5.1 5 9c0 2.4 1.2 4.5 3 5.7V17c0 .5.4 1 1 1h6c.6 0 1-.5 1-1v-2.3c1.8-1.3 3-3.4 3-5.7 0-3.9-3.1-7-7-7z"/>
+                  </svg>
+                  <span class="text-slate-300">Problem Solving</span>
+                </div>
+                <span class="text-slate-400 text-sm">Advanced</span>
+              </div>
+              <div class="w-full bg-slate-700 rounded-full h-2">
+                <div class="bg-blue-500 h-2 rounded-full skill-progress" style="width: 80%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between items-center mb-1">
+                <div class="flex items-center gap-2">
+                  <svg class="skill-icon" fill="currentColor" viewBox="0 0 24 24" style="color: #60a5fa;">
+                    <path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9c.83 0 1.5-.67 1.5-1.5 0-.39-.15-.74-.39-1.01-.23-.26-.38-.61-.38-.99 0-.83.67-1.5 1.5-1.5H16c2.76 0 5-2.24 5-5 0-4.42-4.03-8-9-8zm-5.5 9c-.83 0-1.5-.67-1.5-1.5S5.67 9 6.5 9 8 9.67 8 10.5 7.33 12 6.5 12zm3-4C8.67 8 8 7.33 8 6.5S8.67 5 9.5 5 11 5.67 11 6.5 10.33 8 9.5 8zm5 0c-.83 0-1.5-.67-1.5-1.5S13.67 5 14.5 5 16 5.67 16 6.5 15.33 8 14.5 8zm3 4c-.83 0-1.5-.67-1.5-1.5S16.67 9 17.5 9 19 9.67 19 10.5 18.33 12 17.5 12z"/>
+                  </svg>
+                  <span class="text-slate-300">Creativity</span>
+                </div>
+                <span class="text-slate-400 text-sm">Advanced</span>
+              </div>
+              <div class="w-full bg-slate-700 rounded-full h-2">
+                <div class="bg-blue-500 h-2 rounded-full skill-progress" style="width: 80%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tools & Platforms -->
+        <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700">
+          <h3 class="text-xl font-semibold text-white mb-4">Tools & Platforms</h3>
+          <div class="space-y-4">
+            <div>
+              <div class="flex justify-between items-center mb-1">
+                <div class="flex items-center gap-2">
+                  <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/git.svg" alt="Git" class="skill-icon" style="filter: brightness(0) saturate(100%) invert(59%) sepia(95%) saturate(1352%) hue-rotate(173deg) brightness(101%) contrast(101%);">
+                  <span class="text-slate-300">Git</span>
+                </div>
+                <span class="text-slate-400 text-sm">Advanced</span>
+              </div>
+              <div class="w-full bg-slate-700 rounded-full h-2">
+                <div class="bg-blue-500 h-2 rounded-full skill-progress" style="width: 80%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between items-center mb-1">
+                <div class="flex items-center gap-2">
+                  <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/jupyter.svg" alt="Jupyter" class="skill-icon" style="filter: brightness(0) saturate(100%) invert(59%) sepia(95%) saturate(1352%) hue-rotate(173deg) brightness(101%) contrast(101%);">
+                  <span class="text-slate-300">Jupyter</span>
+                </div>
+                <span class="text-slate-400 text-sm">Advanced</span>
+              </div>
+              <div class="w-full bg-slate-700 rounded-full h-2">
+                <div class="bg-blue-500 h-2 rounded-full skill-progress" style="width: 80%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between items-center mb-1">
+                <div class="flex items-center gap-2">
+                  <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/visualstudiocode.svg" alt="VS Code" class="skill-icon" style="filter: brightness(0) saturate(100%) invert(59%) sepia(95%) saturate(1352%) hue-rotate(173deg) brightness(101%) contrast(101%);">
+                  <span class="text-slate-300">VS Code</span>
+                </div>
+                <span class="text-slate-400 text-sm">Advanced</span>
+              </div>
+              <div class="w-full bg-slate-700 rounded-full h-2">
+                <div class="bg-blue-500 h-2 rounded-full skill-progress" style="width: 80%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between items-center mb-1">
+                <div class="flex items-center gap-2">
+                  <svg class="skill-icon" fill="currentColor" viewBox="0 0 24 24" style="color: #60a5fa;">
+                    <path d="M13.64 21.97c-.35.06-.67.03-.97 0l-2.02-.39c-.28-.06-.5-.2-.6-.39l-1.01-1.97c-.18-.35-.5-.6-.9-.73l-2.01-.74c-.4-.14-.8-.35-1.1-.64L2.5 15.5c-.28-.28-.4-.67-.34-1.05l.39-2.02c.06-.28.2-.5.39-.6l1.97-1.01c.35-.18.6-.5.73-.9l.74-2.01c.14-.4.35-.8.64-1.1L8.5 2.84c.28-.28.67-.4 1.05-.34l2.02.39c.28.06.5.2.6.39l1.01 1.97c.18.35.5.6.9.73l2.01.74c.4.14.8.35 1.1.64l1.55 1.55c.28.28.4.67.34 1.05l-.39 2.02c-.06.28-.2.5-.39.6l-1.97 1.01c-.35.18-.6.5-.73.9l-.74 2.01c-.14.4-.35.8-.64 1.1l-1.55 1.55c-.28.28-.67.4-1.05.34z"/>
+                  </svg>
+                  <span class="text-slate-300">Cursor</span>
+                </div>
+                <span class="text-slate-400 text-sm">Advanced</span>
+              </div>
+              <div class="w-full bg-slate-700 rounded-full h-2">
+                <div class="bg-blue-500 h-2 rounded-full skill-progress" style="width: 80%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== Contact Section ====== -->
+  <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">Contact Me</h2>
+      <p class="text-center text-slate-400 mb-12">Get In Touch</p>
+      <p class="text-center text-slate-300 mb-12">Feel free to reach out to me for any questions or opportunities!</p>
+
+      <div class="grid md:grid-cols-2 gap-8 mb-12">
+        <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700 text-center">
+          <div class="text-3xl mb-4">📧</div>
+          <h3 class="text-xl font-semibold text-white mb-2">Email</h3>
+          <a href="mailto:stevenmtikas@gmail.com" class="text-blue-400 hover:text-blue-300 transition-colors">
+            stevenmtikas@gmail.com
+          </a>
+        </div>
+        <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700 text-center">
+          <div class="text-3xl mb-4">📍</div>
+          <h3 class="text-xl font-semibold text-white mb-2">Location</h3>
+          <p class="text-slate-300">Jacksonville, FL USA</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== Footer ====== -->
+  <footer class="py-8 px-4 sm:px-6 lg:px-8 bg-slate-900/50 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto text-center">
+      <p class="text-slate-300 mb-2">Steven Tikas</p>
+      <p class="text-slate-400 text-sm mb-4">Thanks for visiting my portfolio website.</p>
+      <p class="text-slate-500 text-xs">
+        © <span id="year"></span> Steven Tikas. All Rights Reserved.
+      </p>
+    </div>
+  </footer>
+
+  <!-- ====== JavaScript ====== -->
+  <script>
+    // Set current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Typing animation
+    const typingText = document.getElementById('typing-text');
+    const professions = ['AI Context Engineer', 'Data Scientist', 'Web Developer', 'Problem Solver', 'All-Around Great Guy'];
+    let currentProfession = 0;
+    let currentChar = 0;
+    let isDeleting = false;
+
+    function typeEffect() {
+      const current = professions[currentProfession];
+      
+      if (isDeleting) {
+        typingText.textContent = current.substring(0, currentChar - 1);
+        currentChar--;
+      } else {
+        typingText.textContent = current.substring(0, currentChar + 1);
+        currentChar++;
+      }
+
+      if (!isDeleting && currentChar === current.length) {
+        setTimeout(() => isDeleting = true, 2000);
+      } else if (isDeleting && currentChar === 0) {
+        isDeleting = false;
+        currentProfession = (currentProfession + 1) % professions.length;
+      }
+
+      const speed = isDeleting ? 50 : 100;
+      setTimeout(typeEffect, speed);
+    }
+
+    typeEffect();
+
+    // Mobile menu toggle
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    
+    mobileMenuToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('open');
+    });
+
+    // Close mobile menu when clicking a link
+    const mobileLinks = mobileMenu.querySelectorAll('a');
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+      });
+    });
+
+    // Smooth scroll for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          const offset = 80;
+          const targetPosition = target.offsetTop - offset;
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    // Active navigation link highlighting
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    function highlightActiveSection() {
+      const scrollY = window.pageYOffset;
+
+      sections.forEach(section => {
+        const sectionHeight = section.offsetHeight;
+        const sectionTop = section.offsetTop - 100;
+        const sectionId = section.getAttribute('id');
+
+        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+          navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${sectionId}`) {
+              link.classList.add('active');
+            }
+          });
+        }
+      });
+    }
+
+    window.addEventListener('scroll', highlightActiveSection);
+    highlightActiveSection(); // Initial call
+
+    // Intersection Observer for fade-in animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('fade-in-up');
+        }
+      });
+    }, observerOptions);
+
+    // Observe project cards and skill cards
+    document.querySelectorAll('.bg-slate-800\\/50').forEach(card => {
+      observer.observe(card);
+    });
+  </script>
+
+  <!-- ====== Chat Bubble & UI ====== -->
+  <!-- Chat Bubble Button -->
+  <button
+    id="chatBubble"
+    class="fixed bottom-6 right-6 z-50 w-14 h-14 bg-gradient-to-br from-blue-500 to-purple-600 text-white rounded-full shadow-2xl hover:shadow-blue-500/50 transition-all hover:scale-110 active:scale-95 flex items-center justify-center group"
+    aria-label="Open chat"
+  >
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+      </svg>
+    <span class="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full border-2 border-slate-950 animate-pulse"></span>
+  </button>
+
+  <!-- Chat UI Panel -->
+  <div
+    id="chatPanel"
+    class="fixed bottom-6 right-6 z-50 w-[400px] max-w-[calc(100vw-3rem)] h-[600px] max-h-[calc(100vh-8rem)] bg-slate-800 rounded-2xl shadow-2xl border border-slate-700 flex flex-col transform translate-y-full opacity-0 transition-all duration-300 ease-out pointer-events-none"
+  >
+    <!-- Chat Header -->
+    <div class="bg-gradient-to-r from-blue-500 to-purple-600 p-4 rounded-t-2xl flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
+          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+          </svg>
+        </div>
+      <div>
+          <h3 class="text-white font-semibold">Ask About Steven</h3>
+          <p class="text-white/80 text-xs">Learn about my experience & skills</p>
+        </div>
+      </div>
+      <button
+        id="closeChat"
+        class="w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 text-white transition-colors flex items-center justify-center"
+        aria-label="Close chat"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Messages Area -->
+    <div
+      id="chatMessages"
+      class="flex-1 overflow-y-auto p-4 space-y-4 bg-slate-900/50"
+    >
+      <!-- Welcome Message -->
+      <div class="flex items-start gap-3">
+        <div class="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center flex-shrink-0">
+          <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+          </svg>
+        </div>
+        <div class="bg-slate-700 rounded-2xl rounded-tl-none px-4 py-3 text-sm text-slate-200 max-w-[85%]">
+          <p>Hi! I'm here to answer questions about Steven Tikas. Ask me about his experience, skills, projects, or anything else you'd like to know!</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Input Area -->
+    <div class="p-4 border-t border-slate-700 bg-slate-800">
+      <form id="chatForm" class="flex gap-2">
+        <input
+          type="text"
+          id="chatInput"
+          placeholder="Ask about Steven's experience, skills, or projects..."
+          class="flex-1 bg-slate-700 text-white placeholder-slate-400 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 border border-slate-600"
+          autocomplete="off"
+        />
+      <button
+        type="submit"
+          class="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 text-white rounded-lg hover:opacity-90 transition-opacity flex items-center justify-center flex-shrink-0"
+          aria-label="Send message"
+      >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+          </svg>
+      </button>
+    </form>
+    </div>
+  </div>
+
+  <!-- Chat UI JavaScript -->
+  <script>
+    const chatBubble = document.getElementById('chatBubble');
+    const chatPanel = document.getElementById('chatPanel');
+    const closeChat = document.getElementById('closeChat');
+    const chatForm = document.getElementById('chatForm');
+    const chatInput = document.getElementById('chatInput');
+    const chatMessages = document.getElementById('chatMessages');
+    let isOpen = false;
+
+    function openChat() {
+      if (isOpen) return;
+      isOpen = true;
+      chatPanel.classList.remove('translate-y-full', 'opacity-0', 'pointer-events-none');
+      chatPanel.classList.add('translate-y-0', 'opacity-100');
+      chatBubble.classList.add('opacity-0', 'pointer-events-none');
+      setTimeout(() => chatInput.focus(), 100);
+    }
+
+    function closeChatPanel() {
+      if (!isOpen) return;
+      isOpen = false;
+      chatPanel.classList.add('translate-y-full', 'opacity-0', 'pointer-events-none');
+      chatPanel.classList.remove('translate-y-0', 'opacity-100');
+      chatBubble.classList.remove('opacity-0', 'pointer-events-none');
+    }
+
+    chatBubble.addEventListener('click', openChat);
+    closeChat.addEventListener('click', closeChatPanel);
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && isOpen) {
+        closeChatPanel();
+      }
+    });
+
+    // Add message to chat
+    function addMessage(text, isUser = false) {
+      const messageDiv = document.createElement('div');
+      messageDiv.className = `flex items-start gap-3 ${isUser ? 'flex-row-reverse' : ''}`;
+      
+      const avatar = document.createElement('div');
+      avatar.className = `w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 ${
+        isUser 
+          ? 'bg-slate-600' 
+          : 'bg-gradient-to-br from-blue-500 to-purple-600'
+      }`;
+      
+      if (isUser) {
+        avatar.innerHTML = '<svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>';
+      } else {
+        avatar.innerHTML = '<svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>';
+      }
+      
+      const bubble = document.createElement('div');
+      bubble.className = `rounded-2xl px-4 py-3 text-sm max-w-[85%] ${
+        isUser
+          ? 'bg-blue-600 text-white rounded-tr-none'
+          : 'bg-slate-700 text-slate-200 rounded-tl-none'
+      }`;
+      bubble.textContent = text;
+
+      messageDiv.appendChild(avatar);
+      messageDiv.appendChild(bubble);
+      chatMessages.appendChild(messageDiv);
+      
+      // Scroll to bottom
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    // Add loading message
+    function addLoadingMessage() {
+      const messageDiv = document.createElement('div');
+      messageDiv.id = 'loading-message';
+      messageDiv.className = 'flex items-start gap-3';
+      
+      const avatar = document.createElement('div');
+      avatar.className = 'w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center flex-shrink-0';
+      avatar.innerHTML = '<svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>';
+      
+      const bubble = document.createElement('div');
+      bubble.className = 'bg-slate-700 rounded-2xl rounded-tl-none px-4 py-3 text-sm text-slate-200';
+      bubble.innerHTML = '<div class="flex items-center gap-2"><div class="w-2 h-2 bg-blue-400 rounded-full animate-bounce"></div><div class="w-2 h-2 bg-blue-400 rounded-full animate-bounce" style="animation-delay: 0.1s"></div><div class="w-2 h-2 bg-blue-400 rounded-full animate-bounce" style="animation-delay: 0.2s"></div></div>';
+      
+      messageDiv.appendChild(avatar);
+      messageDiv.appendChild(bubble);
+      chatMessages.appendChild(messageDiv);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+      
+      return messageDiv;
+    }
+
+    // Remove loading message
+    function removeLoadingMessage() {
+      const loadingMsg = document.getElementById('loading-message');
+      if (loadingMsg) {
+        loadingMsg.remove();
+      }
+    }
+
+    // Handle form submission
+    chatForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const message = chatInput.value.trim();
+      if (!message) return;
+      
+      // Add user message
+      addMessage(message, true);
+      chatInput.value = '';
+      chatInput.disabled = true;
+      
+      // Show loading indicator
+      const loadingMsg = addLoadingMessage();
+      
+      try {
+        // Call the chatbot API
+        const response = await fetch('http://localhost:8000/api/ask', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ message: message }),
+        });
+        
+        removeLoadingMessage();
+        
+        if (!response.ok) {
+          const errorData = await response.json().catch(() => ({ detail: 'Unknown error' }));
+          throw new Error(errorData.detail || `HTTP error! status: ${response.status}`);
+        }
+        
+        const data = await response.json();
+        addMessage(data.reply || "I couldn't generate a response.");
+        
+      } catch (error) {
+        removeLoadingMessage();
+        console.error('Error calling chatbot API:', error);
+        addMessage("Sorry, I'm having trouble connecting to the server. Please make sure the backend server is running on http://localhost:8000");
+      } finally {
+        chatInput.disabled = false;
+        chatInput.focus();
+      }
+    });
+  </script>
+</body>
+</html>

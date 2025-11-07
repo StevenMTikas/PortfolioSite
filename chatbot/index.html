@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Ask About Steven - Chatbot</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      min-height: 100vh;
+    }
+    
+    /* Preserve formatting in chat messages */
+    #chatMessages p {
+      margin-bottom: 0.5rem;
+    }
+    
+    #chatMessages p:last-child {
+      margin-bottom: 0;
+    }
+    
+    #chatMessages code {
+      word-break: break-word;
+    }
+    
+    #chatMessages ul, #chatMessages ol {
+      margin: 0.5rem 0;
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-white min-h-screen flex items-center justify-center p-4">
+  <!-- Chat UI Panel - Full Screen Version -->
+  <div class="w-full max-w-4xl h-[90vh] bg-slate-800 rounded-2xl shadow-2xl border border-slate-700 flex flex-col">
+    <!-- Chat Header -->
+    <div class="bg-gradient-to-r from-blue-500 to-purple-600 p-6 rounded-t-2xl">
+      <div class="flex items-center gap-3">
+        <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
+          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+          </svg>
+        </div>
+        <div>
+          <h1 class="text-2xl font-bold text-white">Ask About Steven</h1>
+          <p class="text-white/80 text-sm">Learn about my experience, skills, and projects</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Messages Area -->
+    <div id="chatMessages" class="flex-1 overflow-y-auto p-6 space-y-4 bg-slate-900/50">
+      <!-- Welcome Message -->
+      <div class="flex items-start gap-3">
+        <div class="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center flex-shrink-0">
+          <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+          </svg>
+        </div>
+        <div class="bg-slate-700 rounded-2xl rounded-tl-none px-4 py-3 text-sm text-slate-200 max-w-[85%]">
+          <p>Hi! I'm here to answer questions about Steven Tikas. Ask me about his experience, skills, projects, or anything else you'd like to know!</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Input Area -->
+    <div class="p-6 border-t border-slate-700 bg-slate-800 rounded-b-2xl">
+      <form id="chatForm" class="flex gap-2">
+        <input
+          type="text"
+          id="chatInput"
+          placeholder="Ask about Steven's experience, skills, or projects..."
+          class="flex-1 bg-slate-700 text-white placeholder-slate-400 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 border border-slate-600"
+          autocomplete="off"
+        />
+        <button
+          type="submit"
+          class="px-6 py-3 bg-gradient-to-br from-blue-500 to-purple-600 text-white rounded-lg hover:opacity-90 transition-opacity flex items-center justify-center font-semibold"
+        >
+          Send
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const chatForm = document.getElementById('chatForm');
+    const chatInput = document.getElementById('chatInput');
+    const chatMessages = document.getElementById('chatMessages');
+
+    // Format message text with basic markdown support
+    function formatMessageText(text) {
+      if (!text) return '';
+      
+      // Escape HTML to prevent XSS (but preserve structure for formatting)
+      let formatted = text
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
+      
+      // Convert markdown-style formatting
+      // Bold: **text** or __text__
+      formatted = formatted.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+      formatted = formatted.replace(/__(.+?)__/g, '<strong>$1</strong>');
+      
+      // Italic: *text* or _text_ (process after bold to avoid conflicts)
+      // Use a simple approach: match single * or _ that aren't part of ** or __
+      formatted = formatted.replace(/(?<!\*)\*([^*\n]+?)\*(?!\*)/g, '<em>$1</em>');
+      formatted = formatted.replace(/(?<!_)_([^_\n]+?)_(?!_)/g, '<em>$1</em>');
+      
+      // Code: `code`
+      formatted = formatted.replace(/`([^`]+)`/g, '<code class="bg-slate-800 px-1.5 py-0.5 rounded text-blue-300 font-mono text-xs">$1</code>');
+      
+      // Links: [text](url)
+      formatted = formatted.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 underline">$1</a>');
+      
+      // Split into paragraphs first (double line breaks)
+      const paragraphs = formatted.split(/\n\n+/);
+      const processedParagraphs = paragraphs.map(para => {
+        if (!para.trim()) return '';
+        
+        para = para.trim();
+        
+        // Check if this paragraph is a list
+        const bulletListMatch = para.match(/^([\-\*]\s+.+(\n[\-\*]\s+.+)*)$/m);
+        const numberedListMatch = para.match(/^(\d+\.\s+.+(\n\d+\.\s+.+)*)$/m);
+        
+        if (bulletListMatch) {
+          // Bullet list
+          const items = para.split(/\n/).filter(line => /^[\-\*]\s+/.test(line));
+          const listItems = items.map(item => {
+            const content = item.replace(/^[\-\*]\s+/, '');
+            return `<li class="ml-4 mb-1">${content}</li>`;
+          }).join('');
+          return `<ul class="list-disc list-inside my-2 space-y-1">${listItems}</ul>`;
+        } else if (numberedListMatch) {
+          // Numbered list
+          const items = para.split(/\n/).filter(line => /^\d+\.\s+/.test(line));
+          const listItems = items.map(item => {
+            const content = item.replace(/^\d+\.\s+/, '');
+            return `<li class="ml-4 mb-1">${content}</li>`;
+          }).join('');
+          return `<ol class="list-decimal list-inside my-2 space-y-1">${listItems}</ol>`;
+        } else {
+          // Regular paragraph - convert single line breaks to <br>
+          para = para.replace(/\n/g, '<br>');
+          return `<p class="mb-2 last:mb-0">${para}</p>`;
+        }
+      });
+      
+      return processedParagraphs.join('');
+    }
+
+    function addMessage(text, isUser = false) {
+      const messageDiv = document.createElement('div');
+      messageDiv.className = `flex items-start gap-3 ${isUser ? 'flex-row-reverse' : ''}`;
+      
+      const avatar = document.createElement('div');
+      avatar.className = `w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 ${
+        isUser 
+          ? 'bg-slate-600' 
+          : 'bg-gradient-to-br from-blue-500 to-purple-600'
+      }`;
+      
+      avatar.innerHTML = '<svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>';
+      
+      const bubble = document.createElement('div');
+      bubble.className = `rounded-2xl px-4 py-3 text-sm max-w-[85%] ${
+        isUser
+          ? 'bg-blue-600 text-white rounded-tr-none'
+          : 'bg-slate-700 text-slate-200 rounded-tl-none'
+      }`;
+      
+      // Format the text: preserve line breaks and basic markdown
+      const formattedText = formatMessageText(text);
+      bubble.innerHTML = formattedText;
+
+      messageDiv.appendChild(avatar);
+      messageDiv.appendChild(bubble);
+      chatMessages.appendChild(messageDiv);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    function addLoadingMessage() {
+      const messageDiv = document.createElement('div');
+      messageDiv.id = 'loading-message';
+      messageDiv.className = 'flex items-start gap-3';
+      
+      const avatar = document.createElement('div');
+      avatar.className = 'w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center flex-shrink-0';
+      avatar.innerHTML = '<svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>';
+      
+      const bubble = document.createElement('div');
+      bubble.className = 'bg-slate-700 rounded-2xl rounded-tl-none px-4 py-3 text-sm text-slate-200';
+      bubble.innerHTML = '<div class="flex items-center gap-2"><div class="w-2 h-2 bg-blue-400 rounded-full animate-bounce"></div><div class="w-2 h-2 bg-blue-400 rounded-full animate-bounce" style="animation-delay: 0.1s"></div><div class="w-2 h-2 bg-blue-400 rounded-full animate-bounce" style="animation-delay: 0.2s"></div></div>';
+      
+      messageDiv.appendChild(avatar);
+      messageDiv.appendChild(bubble);
+      chatMessages.appendChild(messageDiv);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    function removeLoadingMessage() {
+      const loadingMsg = document.getElementById('loading-message');
+      if (loadingMsg) loadingMsg.remove();
+    }
+
+    chatForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const message = chatInput.value.trim();
+      if (!message) return;
+      
+      addMessage(message, true);
+      chatInput.value = '';
+      chatInput.disabled = true;
+      
+      const loadingMsg = addLoadingMessage();
+      
+      try {
+        // Use relative path since API is on same server
+        const response = await fetch('/api/ask', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ message: message }),
+        });
+        
+        removeLoadingMessage();
+        
+        if (!response.ok) {
+          const errorData = await response.json().catch(() => ({ detail: 'Unknown error' }));
+          throw new Error(errorData.detail || `HTTP error! status: ${response.status}`);
+        }
+        
+        const data = await response.json();
+        addMessage(data.reply || "I couldn't generate a response.");
+      } catch (error) {
+        removeLoadingMessage();
+        console.error('Error:', error);
+        addMessage("Sorry, I'm having trouble connecting to the server. Please try again.");
+      } finally {
+        chatInput.disabled = false;
+        chatInput.focus();
+      }
+    });
+  </script>
+</body>
+</html>
+

@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>NFL Picker - Team Analysis & Prediction</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+      min-height: 100vh;
+    }
+  </style>
+</head>
+<body class="text-white">
+  <!-- Description Section -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div class="bg-slate-800/80 rounded-lg p-6 mb-6 border border-slate-700">
+      <h1 class="text-3xl md:text-4xl font-bold mb-4 text-center">NFL Picker</h1>
+      <p class="text-lg text-slate-300 leading-relaxed mb-4">
+        An AI-powered NFL team analysis and game prediction system using CrewAI. This application allows you to select two NFL teams and get comprehensive analysis including team statistics, injury reports, coaching strategies, and special teams performance.
+      </p>
+      <p class="text-lg text-slate-300 leading-relaxed">
+        The system uses advanced AI agents to gather and analyze data from multiple sources, providing you with detailed insights and predictions for upcoming NFL games. Select your teams below and run an analysis to see predictions and recommendations.
+      </p>
+    </div>
+
+    <!-- Main GUI Container -->
+    <div class="bg-slate-800/80 rounded-lg p-6 border border-slate-700">
+      <!-- Tabs -->
+      <div class="mb-6">
+        <div class="flex space-x-2 border-b border-slate-600">
+          <button id="analysisTab" class="px-6 py-3 font-semibold text-blue-400 border-b-2 border-blue-400 transition-colors">
+            Team Analysis
+          </button>
+          <button id="resultsTab" class="px-6 py-3 font-semibold text-slate-400 hover:text-blue-400 transition-colors">
+            Result Entry
+          </button>
+        </div>
+      </div>
+
+      <!-- Analysis Tab Content -->
+      <div id="analysisContent" class="space-y-6">
+        <!-- Team Selection -->
+        <div class="space-y-4">
+          <div>
+            <label class="block text-sm font-semibold mb-2">Team 1:</label>
+            <select id="team1" class="w-full bg-slate-700 text-white rounded-lg px-4 py-2 border border-slate-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
+              <option value="">Select Team 1</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-sm font-semibold mb-2">Team 2:</label>
+            <select id="team2" class="w-full bg-slate-700 text-white rounded-lg px-4 py-2 border border-slate-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
+              <option value="">Select Team 2</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Home Team Selection -->
+        <div>
+          <label class="block text-sm font-semibold mb-2">Home Team:</label>
+          <select id="homeTeam" class="w-full bg-slate-700 text-white rounded-lg px-4 py-2 border border-slate-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <option value="">Select Home Team</option>
+          </select>
+        </div>
+
+        <!-- Team Statistics -->
+        <div>
+          <div class="flex justify-between items-center mb-2">
+            <label class="block text-sm font-semibold">Team Statistics:</label>
+            <div class="space-x-2">
+              <button id="refreshStats" class="px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg transition-colors text-sm font-semibold">
+                Refresh Team Stats
+              </button>
+              <button id="updateDatabase" class="px-4 py-2 bg-yellow-600 hover:bg-yellow-700 text-white rounded-lg transition-colors text-sm font-semibold">
+                Update Database
+              </button>
+            </div>
+          </div>
+          <textarea id="statsDisplay" readonly class="w-full bg-slate-900 text-slate-200 rounded-lg px-4 py-3 border border-slate-600 font-mono text-sm" rows="8" placeholder="Team statistics will appear here..."></textarea>
+        </div>
+
+        <!-- Analysis Options -->
+        <div class="space-y-2">
+          <label class="block text-sm font-semibold mb-2">Analysis Options:</label>
+          <label class="flex items-center space-x-2 cursor-pointer">
+            <input type="checkbox" id="includeInjuries" checked class="w-4 h-4 text-blue-600 bg-slate-700 border-slate-600 rounded focus:ring-blue-500">
+            <span>Include Injury Analysis</span>
+          </label>
+          <label class="flex items-center space-x-2 cursor-pointer">
+            <input type="checkbox" id="includeCoaching" checked class="w-4 h-4 text-blue-600 bg-slate-700 border-slate-600 rounded focus:ring-blue-500">
+            <span>Include Coaching Analysis</span>
+          </label>
+          <label class="flex items-center space-x-2 cursor-pointer">
+            <input type="checkbox" id="includeSpecialTeams" checked class="w-4 h-4 text-blue-600 bg-slate-700 border-slate-600 rounded focus:ring-blue-500">
+            <span>Include Special Teams Analysis</span>
+          </label>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="flex space-x-4">
+          <button id="runAnalysis" class="flex-1 px-6 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors font-bold text-lg">
+            Run Team Analysis
+          </button>
+          <button id="clearAll" class="px-6 py-4 bg-slate-600 hover:bg-slate-700 text-white rounded-lg transition-colors font-bold">
+            Clear All
+          </button>
+        </div>
+
+        <!-- Results Display -->
+        <div id="resultsDisplay" class="hidden">
+          <label class="block text-sm font-semibold mb-2">Analysis Results:</label>
+          <div id="resultsContent" class="bg-slate-900 rounded-lg px-4 py-3 border border-slate-600 text-slate-200 whitespace-pre-wrap font-mono text-sm max-h-96 overflow-y-auto"></div>
+        </div>
+      </div>
+
+      <!-- Results Tab Content -->
+      <div id="resultsTabContent" class="hidden space-y-6">
+        <div>
+          <label class="block text-sm font-semibold mb-2">Week:</label>
+          <input type="number" id="week" min="1" max="18" class="w-full bg-slate-700 text-white rounded-lg px-4 py-2 border border-slate-600 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter week number">
+        </div>
+        <div>
+          <label class="block text-sm font-semibold mb-2">Winning Team:</label>
+          <select id="winningTeam" class="w-full bg-slate-700 text-white rounded-lg px-4 py-2 border border-slate-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <option value="">Select Winning Team</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-sm font-semibold mb-2">Score:</label>
+          <div class="flex space-x-2">
+            <input type="number" id="team1Score" min="0" class="flex-1 bg-slate-700 text-white rounded-lg px-4 py-2 border border-slate-600 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Team 1 Score">
+            <span class="self-center">-</span>
+            <input type="number" id="team2Score" min="0" class="flex-1 bg-slate-700 text-white rounded-lg px-4 py-2 border border-slate-600 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Team 2 Score">
+          </div>
+        </div>
+        <button id="submitResult" class="w-full px-6 py-4 bg-green-600 hover:bg-green-700 text-white rounded-lg transition-colors font-bold">
+          Submit Result
+        </button>
+        <div id="resultMessage" class="hidden text-center text-green-400 font-semibold"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // NFL Teams List
+    const NFL_TEAMS = [
+      "Arizona Cardinals", "Atlanta Falcons", "Baltimore Ravens", "Buffalo Bills",
+      "Carolina Panthers", "Chicago Bears", "Cincinnati Bengals", "Cleveland Browns",
+      "Dallas Cowboys", "Denver Broncos", "Detroit Lions", "Green Bay Packers",
+      "Houston Texans", "Indianapolis Colts", "Jacksonville Jaguars", "Kansas City Chiefs",
+      "Las Vegas Raiders", "Los Angeles Chargers", "Los Angeles Rams", "Miami Dolphins",
+      "Minnesota Vikings", "New England Patriots", "New Orleans Saints", "New York Giants",
+      "New York Jets", "Philadelphia Eagles", "Pittsburgh Steelers", "San Francisco 49ers",
+      "Seattle Seahawks", "Tampa Bay Buccaneers", "Tennessee Titans", "Washington Commanders"
+    ];
+
+    // Populate team dropdowns
+    function populateTeamDropdowns() {
+      const selects = ['team1', 'team2', 'homeTeam', 'winningTeam'];
+      selects.forEach(selectId => {
+        const select = document.getElementById(selectId);
+        NFL_TEAMS.forEach(team => {
+          const option = document.createElement('option');
+          option.value = team;
+          option.textContent = team;
+          select.appendChild(option);
+        });
+      });
+    }
+
+    // Tab switching
+    document.getElementById('analysisTab').addEventListener('click', () => {
+      document.getElementById('analysisContent').classList.remove('hidden');
+      document.getElementById('resultsContent').classList.add('hidden');
+      document.getElementById('analysisTab').classList.add('text-blue-400', 'border-b-2', 'border-blue-400');
+      document.getElementById('analysisTab').classList.remove('text-slate-400');
+      document.getElementById('resultsTab').classList.remove('text-blue-400', 'border-b-2', 'border-blue-400');
+      document.getElementById('resultsTab').classList.add('text-slate-400');
+    });
+
+    document.getElementById('resultsTab').addEventListener('click', () => {
+      document.getElementById('analysisContent').classList.add('hidden');
+      document.getElementById('resultsTabContent').classList.remove('hidden');
+      document.getElementById('resultsTab').classList.add('text-blue-400', 'border-b-2', 'border-blue-400');
+      document.getElementById('resultsTab').classList.remove('text-slate-400');
+      document.getElementById('analysisTab').classList.remove('text-blue-400', 'border-b-2', 'border-blue-400');
+      document.getElementById('analysisTab').classList.add('text-slate-400');
+    });
+
+    // Update home team options based on selected teams
+    function updateHomeTeamOptions() {
+      const team1 = document.getElementById('team1').value;
+      const team2 = document.getElementById('team2').value;
+      const homeTeamSelect = document.getElementById('homeTeam');
+      
+      // Clear and repopulate
+      homeTeamSelect.innerHTML = '<option value="">Select Home Team</option>';
+      
+      if (team1 && team2) {
+        [team1, team2].forEach(team => {
+          const option = document.createElement('option');
+          option.value = team;
+          option.textContent = team;
+          homeTeamSelect.appendChild(option);
+        });
+      }
+    }
+
+    document.getElementById('team1').addEventListener('change', updateHomeTeamOptions);
+    document.getElementById('team2').addEventListener('change', updateHomeTeamOptions);
+
+    // Refresh team stats
+    document.getElementById('refreshStats').addEventListener('click', async () => {
+      const team1 = document.getElementById('team1').value;
+      const team2 = document.getElementById('team2').value;
+      
+      if (!team1 || !team2) {
+        alert('Please select both teams first');
+        return;
+      }
+
+      const statsDisplay = document.getElementById('statsDisplay');
+      statsDisplay.value = 'Loading statistics...';
+      
+      try {
+        const response = await fetch(`http://localhost:8001/api/nfl-picker/stats?team1=${encodeURIComponent(team1)}&team2=${encodeURIComponent(team2)}`);
+        const data = await response.json();
+        
+        if (data.success) {
+          statsDisplay.value = data.stats;
+        } else {
+          statsDisplay.value = `Error: ${data.error || 'Failed to load statistics'}`;
+        }
+      } catch (error) {
+        statsDisplay.value = `Error: ${error.message}\n\nMake sure the NFL Picker API server is running on port 8001.`;
+      }
+    });
+
+    // Run analysis
+    document.getElementById('runAnalysis').addEventListener('click', async () => {
+      const team1 = document.getElementById('team1').value;
+      const team2 = document.getElementById('team2').value;
+      const homeTeam = document.getElementById('homeTeam').value;
+      
+      if (!team1 || !team2) {
+        alert('Please select both teams');
+        return;
+      }
+      
+      if (!homeTeam) {
+        alert('Please select the home team');
+        return;
+      }
+
+      const options = {
+        team1: team1,
+        team2: team2,
+        homeTeam: homeTeam,
+        includeInjuries: document.getElementById('includeInjuries').checked,
+        includeCoaching: document.getElementById('includeCoaching').checked,
+        includeSpecialTeams: document.getElementById('includeSpecialTeams').checked
+      };
+
+      const resultsDiv = document.getElementById('resultsDisplay');
+      const resultsContent = document.getElementById('resultsContent');
+      const runButton = document.getElementById('runAnalysis');
+      
+      resultsDiv.classList.remove('hidden');
+      resultsContent.textContent = 'Running analysis... This may take several minutes.\n\nPlease wait while the AI agents analyze the teams...';
+      runButton.disabled = true;
+      runButton.textContent = 'Analyzing...';
+
+      try {
+        const response = await fetch('http://localhost:8001/api/nfl-picker/analyze', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(options)
+        });
+        
+        const data = await response.json();
+        
+        if (data.success) {
+          resultsContent.textContent = data.result;
+        } else {
+          resultsContent.textContent = `Error: ${data.error || 'Analysis failed'}`;
+        }
+      } catch (error) {
+        resultsContent.textContent = `Error: ${error.message}\n\nMake sure the NFL Picker API server is running on port 8001.\n\nTo start it, run: python nfl_picker_api.py`;
+      } finally {
+        runButton.disabled = false;
+        runButton.textContent = 'Run Team Analysis';
+      }
+    });
+
+    // Clear all
+    document.getElementById('clearAll').addEventListener('click', () => {
+      document.getElementById('team1').value = '';
+      document.getElementById('team2').value = '';
+      document.getElementById('homeTeam').value = '';
+      document.getElementById('statsDisplay').value = '';
+      document.getElementById('resultsDisplay').classList.add('hidden');
+      document.getElementById('includeInjuries').checked = true;
+      document.getElementById('includeCoaching').checked = true;
+      document.getElementById('includeSpecialTeams').checked = true;
+    });
+
+    // Submit result
+    document.getElementById('submitResult').addEventListener('click', async () => {
+      const week = parseInt(document.getElementById('week').value);
+      const team1 = document.getElementById('team1').value;
+      const team2 = document.getElementById('team2').value;
+      const winningTeam = document.getElementById('winningTeam').value;
+      const team1Score = parseInt(document.getElementById('team1Score').value);
+      const team2Score = parseInt(document.getElementById('team2Score').value);
+      
+      if (!week || !team1 || !team2 || !winningTeam || isNaN(team1Score) || isNaN(team2Score)) {
+        alert('Please fill in all fields and select both teams in the Analysis tab');
+        return;
+      }
+
+      const messageDiv = document.getElementById('resultMessage');
+      const submitButton = document.getElementById('submitResult');
+      
+      messageDiv.classList.remove('hidden');
+      messageDiv.textContent = 'Submitting result...';
+      submitButton.disabled = true;
+
+      try {
+        const response = await fetch('http://localhost:8001/api/nfl-picker/submit-result', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            week: week,
+            team1: team1,
+            team2: team2,
+            winningTeam: winningTeam,
+            team1Score: team1Score,
+            team2Score: team2Score
+          })
+        });
+        
+        const data = await response.json();
+        
+        if (data.success) {
+          messageDiv.textContent = data.message;
+          messageDiv.classList.remove('text-red-400');
+          messageDiv.classList.add('text-green-400');
+          
+          // Clear form after 3 seconds
+          setTimeout(() => {
+            document.getElementById('week').value = '';
+            document.getElementById('winningTeam').value = '';
+            document.getElementById('team1Score').value = '';
+            document.getElementById('team2Score').value = '';
+            messageDiv.classList.add('hidden');
+          }, 3000);
+        } else {
+          messageDiv.textContent = `Error: ${data.error || 'Failed to submit result'}`;
+          messageDiv.classList.remove('text-green-400');
+          messageDiv.classList.add('text-red-400');
+        }
+      } catch (error) {
+        messageDiv.textContent = `Error: ${error.message}\n\nMake sure the NFL Picker API server is running.`;
+        messageDiv.classList.remove('text-green-400');
+        messageDiv.classList.add('text-red-400');
+      } finally {
+        submitButton.disabled = false;
+      }
+    });
+
+    // Update database button
+    document.getElementById('updateDatabase').addEventListener('click', async () => {
+      const button = document.getElementById('updateDatabase');
+      button.disabled = true;
+      button.textContent = 'Updating...';
+      
+      try {
+        const response = await fetch('http://localhost:8001/api/nfl-picker/update-database', {
+          method: 'POST'
+        });
+        const data = await response.json();
+        alert(data.message || (data.success ? 'Database update triggered' : data.error));
+      } catch (error) {
+        alert(`Error: ${error.message}\n\nMake sure the NFL Picker API server is running.`);
+      } finally {
+        button.disabled = false;
+        button.textContent = 'Update Database';
+      }
+    });
+
+    // Initialize
+    populateTeamDropdowns();
+  </script>
+</body>
+</html>
+

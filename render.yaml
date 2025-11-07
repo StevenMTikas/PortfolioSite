@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: chatbot
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python chatbot_server.py
+    envVars:
+      - key: OPENAI_API_KEY
+        sync: false  # Set this in Render dashboard
+      - key: PORT
+        value: 10000  # Render automatically sets this, but good to have as fallback
+      - key: GITHUB_TOKEN
+        sync: false  # Optional: GitHub Personal Access Token for higher API rate limits
+      - key: ALLOWED_ORIGINS
+        sync: false  # Optional: Set to restrict CORS (e.g., "https://your-portfolio.vercel.app")
+

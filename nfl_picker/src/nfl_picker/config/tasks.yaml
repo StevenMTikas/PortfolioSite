@@ -1,0 +1,222 @@
+defensive_line_research_task:
+  description: >
+    Conduct a thorough research about defensive line units across all NFL teams using ONLY 2025 statistics.
+    Use Serper web search capabilities to ensure all statistics are from the 2025 and are up-to-date.
+    Analyze individual players and overall units using advanced metrics like Pass Rush Win Rate,
+    Run Stop Rate, Pressure Rate, and Block Shedding. Focus exclusively on the current season performance
+    and identify the top defensive line units in the league. Store all research data in the database
+    with each NFL team having its own section containing all players and position group rankings.
+  expected_output: >
+    A comprehensive ranking of defensive line units with detailed analysis of each team's
+    defensive line performance, including individual player ratings and unit summaries.
+    All data must be stored in the database with proper team sections and position group rankings.
+    All statistics must be verified as 2025 data through Serper web search.
+  agent: defensive_line_researcher
+  llm: gpt-4o-mini
+
+linebacker_research_task:
+  description: >
+    Conduct a thorough research about linebacker units across all NFL teams using ONLY 2025 statistics.
+    Use Serper web search capabilities to ensure all statistics are from the 2025 and are up-to-date.
+    Analyze individual players and overall units using advanced metrics like Tackle Probability,
+    Run Stop Percentage, Coverage Grades, and Defensive Stops. Focus exclusively on the current season
+    performance and identify the top linebacker units in the league. Store all research data in the database
+    with each NFL team having its own section containing all players and position group rankings.
+  expected_output: >
+    A comprehensive ranking of linebacker units with detailed analysis of each team's
+    linebacker performance, including individual player ratings and unit summaries.
+    All data must be stored in the database with proper team sections and position group rankings.
+    All statistics must be verified as 2025 data through Serper web search.
+  agent: linebacker_researcher
+  llm: gpt-4o-mini
+
+cornerback_research_task:
+  description: >
+    Conduct a thorough research about cornerback units across all NFL teams using ONLY 2025 statistics.
+    Use Serper web search capabilities to ensure all statistics are from the 2025 and are up-to-date.
+    Analyze individual players and overall units using advanced metrics like Completion Percentage
+    Allowed, Passer Rating Allowed, Coverage Grades, and Interception Rate. Focus exclusively on the current
+    season performance and identify the top cornerback units in the league. Store all research data in the database
+    with each NFL team having its own section containing all players and position group rankings.
+  expected_output: >
+    A comprehensive ranking of cornerback units with detailed analysis of each team's
+    cornerback performance, including individual player ratings and unit summaries.
+    All data must be stored in the database with proper team sections and position group rankings.
+    All statistics must be verified as 2025 data through Serper web search.
+  agent: cornerback_researcher
+  llm: gpt-4o-mini
+
+safety_research_task:
+  description: >
+    Conduct a thorough research about safety units across all NFL teams using ONLY 2025 statistics.
+    Use Serper web search capabilities to ensure all statistics are from the 2025 and are up-to-date.
+    Analyze individual players and overall units using advanced metrics like Coverage Grades,
+    Tackle Efficiency, Missed Tackle Rate, and Deep Ball Coverage. Focus exclusively on the current season
+    performance and identify the top safety units in the league. Store all research data in the database
+    with each NFL team having its own section containing all players and position group rankings.
+  expected_output: >
+    A comprehensive ranking of safety units with detailed analysis of each team's
+    safety performance, including individual player ratings and unit summaries.
+    All data must be stored in the database with proper team sections and position group rankings.
+    All statistics must be verified as 2025 data through Serper web search.
+  agent: safety_researcher
+  llm: gpt-4o-mini
+
+offensive_line_research_task:
+  description: >
+    Conduct a thorough research about offensive line units across all NFL teams using ONLY 2025 statistics.
+    Use Serper web search capabilities to ensure all statistics are from the 2025 and are up-to-date.
+    Analyze individual players and overall units using advanced metrics like Pass Block Win Rate,
+    Run Block Win Rate, Pressure Rate Allowed, and PFF Blocking Grades. Focus exclusively on the current
+    season performance and identify the top offensive line units in the league. Store all research data in the database
+    with each NFL team having its own section containing all players and position group rankings.
+  expected_output: >
+    A comprehensive ranking of offensive line units with detailed analysis of each team's
+    offensive line performance, including individual player ratings and unit summaries.
+    All data must be stored in the database with proper team sections and position group rankings.
+    All statistics must be verified as 2025 data through Serper web search.
+  agent: offensive_lineman_researcher
+  llm: gpt-4o-mini
+
+tight_end_research_task:
+  description: >
+    Conduct a thorough research about tight end units across all NFL teams using ONLY 2025 statistics.
+    Use Serper web search capabilities to ensure all statistics are from the 2025 and are up-to-date.
+    Analyze individual players and overall units using advanced metrics like Receiving Yards,
+    Catch Rate, Route Running Grades, and Blocking Grades. Focus exclusively on the current season
+    performance and identify the top tight end units in the league. Store all research data in the database
+    with each NFL team having its own section containing all players and position group rankings.
+  expected_output: >
+    A comprehensive ranking of tight end units with detailed analysis of each team's
+    tight end performance, including individual player ratings and unit summaries.
+    All data must be stored in the database with proper team sections and position group rankings.
+    All statistics must be verified as 2025 data through Serper web search.
+  agent: tight_end_researcher
+  llm: gpt-4o-mini
+
+wide_receiver_research_task:
+  description: >
+    Conduct a thorough research about wide receiver units across all NFL teams using ONLY 2025 statistics.
+    Use Serper web search capabilities to ensure all statistics are from the 2025 and are up-to-date.
+    Analyze individual players and overall units using advanced metrics like Receiving Yards,
+    Catch Rate, Target Share, Route Running Grades, and Yards After Catch. Focus exclusively on the current
+    season performance and identify the top wide receiver units in the league. Store all research data in the database
+    with each NFL team having its own section containing all players and position group rankings.
+  expected_output: >
+    A comprehensive ranking of wide receiver units with detailed analysis of each team's
+    wide receiver performance, including individual player ratings and unit summaries.
+    All data must be stored in the database with proper team sections and position group rankings.
+    All statistics must be verified as 2025 data through Serper web search.
+  agent: wide_receiver_researcher
+  llm: gpt-4o-mini
+
+running_back_research_task:
+  description: >
+    Conduct a thorough research about running back units across all NFL teams using ONLY 2025 statistics.
+    Use Serper web search capabilities to ensure all statistics are from the 2025 and are up-to-date.
+    Analyze individual players and overall units using advanced metrics like Rushing Yards,
+    Yards Per Carry, Receiving Yards, PFF Grades, and Fumble Rate. Focus exclusively on the current
+    season performance and identify the top running back units in the league. Store all research data in the database
+    with each NFL team having its own section containing all players and position group rankings.
+  expected_output: >
+    A comprehensive ranking of running back units with detailed analysis of each team's
+    running back performance, including individual player ratings and unit summaries.
+    All data must be stored in the database with proper team sections and position group rankings.
+    All statistics must be verified as 2025 data through Serper web search.
+  agent: running_back_researcher
+  llm: gpt-4o-mini
+
+quarterback_research_task:
+  description: >
+    Conduct a thorough research about quarterback units across all NFL teams using ONLY 2025 statistics.
+    Use Serper web search capabilities to ensure all statistics are from the 2025 and are up-to-date.
+    Analyze individual players and overall units using advanced metrics like Passing Yards,
+    Completion Percentage, Passer Rating, QBR, EPA, and Pocket Presence. Focus exclusively on the current
+    season performance and identify the top quarterback units in the league. Store all research data in the database
+    with each NFL team having its own section containing all players and position group rankings.
+  expected_output: >
+    A comprehensive ranking of quarterback units with detailed analysis of each team's
+    quarterback performance, including individual player ratings and unit summaries.
+    All data must be stored in the database with proper team sections and position group rankings.
+    All statistics must be verified as 2025 data through Serper web search.
+  agent: quarterback_researcher
+  llm: gpt-4o-mini
+
+coaching_staff_research_task:
+  description: >
+    Conduct a thorough research about coaching staff effectiveness across all NFL teams using ONLY 2025 statistics.
+    Use Serper web search capabilities to ensure all statistics are from the 2025 and are up-to-date.
+    Analyze head coaches, coordinators, and position coaches using advanced metrics like win percentage,
+    game management decisions, play calling effectiveness, and player development. Focus exclusively on the current season
+    performance and identify the top coaching staffs in the league. Store all research data in the database
+    with each NFL team having its own section containing coaching staff ratings and analysis.
+  expected_output: >
+    A comprehensive ranking of coaching staffs with detailed analysis of each team's
+    coaching effectiveness, including head coach, coordinator, and position coach ratings.
+    All data must be stored in the database with proper team sections and coaching staff rankings.
+    All statistics must be verified as 2025 data through Serper web search.
+  agent: coaching_staff_researcher
+  llm: gpt-4o-mini
+
+team_grit_research_task:
+  description: >
+    Conduct a thorough research about team grit, heart, and intangibles across all NFL teams using ONLY 2025 statistics.
+    Use Serper web search capabilities to ensure all statistics are from the 2025 and are up-to-date.
+    Analyze comeback victories, fourth quarter performance, adversity response, and team chemistry using advanced metrics.
+    Focus exclusively on the current season performance and identify the teams with the most grit and heart.
+    Store all research data in the database with each NFL team having its own section containing grit and heart ratings.
+  expected_output: >
+    A comprehensive ranking of team grit and heart with detailed analysis of each team's
+    intangible qualities, including comeback ability, clutch performance, and team chemistry.
+    All data must be stored in the database with proper team sections and grit/heart rankings.
+    All statistics must be verified as 2025 data through Serper web search.
+  agent: team_grit_researcher
+  llm: gpt-4o-mini
+
+home_away_research_task:
+  description: >
+    Conduct a thorough research about home and away performance across all NFL teams using ONLY 2025 statistics.
+    Use Serper web search capabilities to ensure all statistics are from the 2025 and are up-to-date.
+    Analyze home field advantage, road warrior ability, and performance differentials using advanced metrics.
+    Keep home and away statistics completely separate as individual metrics. Focus exclusively on the current season
+    performance and identify the best home teams and best road teams in the league. Store all research data in the database
+    with each NFL team having separate home and away performance sections.
+  expected_output: >
+    Separate comprehensive rankings for home performance and away performance with detailed analysis of each team's
+    effectiveness in both environments, including win percentages, scoring differentials, and environmental factors.
+    All data must be stored in the database with proper team sections and separate home/away rankings.
+    All statistics must be verified as 2025 data through Serper web search.
+  agent: home_away_researcher
+  llm: gpt-4o-mini
+
+special_teams_research_task:
+  description: >
+    Conduct a thorough research about special teams units across all NFL teams using ONLY 2025 statistics.
+    Use Serper web search capabilities to ensure all statistics are from the 2025 and are up-to-date.
+    Analyze individual players and overall units using advanced metrics like field goal accuracy,
+    punting effectiveness, return game performance, and coverage unit discipline. Focus exclusively on the current season
+    performance and identify the top special teams units in the league. Store all research data in the database
+    with each NFL team having its own section containing all special teams players and unit rankings.
+  expected_output: >
+    A comprehensive ranking of special teams units with detailed analysis of each team's
+    special teams performance, including individual player ratings and unit summaries.
+    All data must be stored in the database with proper team sections and special teams rankings.
+    All statistics must be verified as 2025 data through Serper web search.
+  agent: special_teams_researcher
+  llm: gpt-4o-mini
+
+injury_report_research_task:
+  description: >
+    Conduct a thorough analysis of current week injury reports across all NFL teams using ONLY current week injury data.
+    Use web search capabilities to ensure all injury reports are from the current week and are up-to-date.
+    Analyze how injuries will impact team performance across all position groups, including offensive and defensive units,
+    special teams, and overall team effectiveness. Focus on key player injuries, depth chart implications, and expected
+    performance impacts. Store all research data in the database with each NFL team having its own section containing
+    injury impact analysis and performance predictions.
+  expected_output: >
+    A comprehensive injury impact analysis for each NFL team with detailed assessment of how current week injuries
+    will affect performance across all position groups, including offensive, defensive, and special teams units.
+    All data must be stored in the database with proper team sections and injury impact rankings.
+    All injury reports must be verified as current week data through Serper web search.
+  agent: injury_report_researcher
+  llm: gpt-4o-mini
