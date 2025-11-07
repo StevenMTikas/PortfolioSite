@@ -24,4 +24,7 @@ I have slept with my feet near a nuclear missle tube
 I like everything from Classical to 90/2000s hip-hop and R&B
 His Facebook page https://www.facebook.com/steven.tikas
 My mother's name is Carmella
-I have 2 sisters
+I have 2 sisters: Kristin and Amy
+Portfolio Site URL: https://github.com/StevenMTikas/PortfolioSite
+NFL Picker App: https://github.com/StevenMTikas/nfl_picker
+YouTube App: https://github.com/StevenMTikas/youtube_product_crew
