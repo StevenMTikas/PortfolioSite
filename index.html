@@ -165,16 +165,9 @@
           <h3 class="text-xl font-semibold text-white mb-2">YouTube Product Crew</h3>
           <p class="text-slate-400 mb-4">A CrewAI-powered multi-agent system that automates YouTube product review content creation. Generates research reports, scripts, SEO keywords, titles, descriptions, and product images,</p>
           <div class="flex flex-col gap-2 mb-3">
-            <a href="https://youtube-product-crew.onrender.com/" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 transition-colors">View Project →</a>
-            <a href="https://github.com/StevenMTikas/youtube-product-crew/blob/main/README.md" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 transition-colors text-sm">View README →</a>
+            <button onclick="openProjectModal('youtube-product-crew')" class="text-blue-400 hover:text-blue-300 transition-colors text-left">View Project →</button>
             <a href="https://youtu.be/EE7fQ6xisac" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 transition-colors text-sm">📹 Watch Example Video →</a>
           </div>
-          <p class="text-slate-500 text-xs italic border-t border-slate-700 pt-2">
-            This video was created with content generated from this site including all images, title, description, subtitles, voiceover,etc. Took ~30 minutes and cost $0.32 (mostly due to DALL-E image generation).
-          </p>
-          <p class="text-slate-500 text-xs italic border-t border-slate-700 pt-2 mt-2">
-            Note: This demo version does not generate actual files to prevent excessive API usage and costs.
-          </p>
         </div>
 
         <!-- Project Card 2 -->
@@ -185,12 +178,8 @@
           <h3 class="text-xl font-semibold text-white mb-2">NFL Picker</h3>
           <p class="text-slate-400 mb-4">An AI-powered NFL team analysis and game prediction system using CrewAI. Select two teams to get comprehensive analysis including statistics, injury reports, coaching strategies, and predictions.</p>
           <div class="flex flex-col gap-2 mb-3">
-            <a href="https://nfl-picker.onrender.com" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 transition-colors">View Project →</a>
-            <a href="https://github.com/StevenMTikas/nfl_picker/blob/main/README.md" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 transition-colors text-sm">View README →</a>
+            <button onclick="openProjectModal('nfl-picker')" class="text-blue-400 hover:text-blue-300 transition-colors text-left">View Project →</button>
           </div>
-          <p class="text-slate-500 text-xs italic border-t border-slate-700 pt-2">
-            Warning: This may fail due to where it is hosted and the pricing tier I'm on it will sometime time out.  I have a working desktop application I can send if you are interested just e-mail me at the e-mail at bottom of the page
-          </p>
         </div>
 
         <!-- Project Card 3 -->
@@ -201,7 +190,7 @@
           <h3 class="text-xl font-semibold text-white mb-2">MeBot - Ask About Steven</h3>
           <p class="text-slate-400 mb-4">An AI-powered chatbot that answers questions about my experience, skills, projects, and background. Built with LangChain, OpenAI, and FastAPI, using RAG (Retrieval-Augmented Generation) to provide accurate information from my bio, resume, and GitHub repositories.</p>
           <div class="flex flex-col gap-2 mb-3">
-            <a href="https://portfoliosite-6lw5.onrender.com/" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 transition-colors">View Project →</a>
+            <button onclick="openProjectModal('mebot')" class="text-blue-400 hover:text-blue-300 transition-colors text-left">View Project →</button>
           </div>
         </div>
 
@@ -508,7 +497,130 @@
     </div>
   </footer>
 
+  <!-- ====== Project Modal ====== -->
+  <div id="projectModal" class="project-modal">
+    <div class="project-modal-content">
+      <button onclick="closeProjectModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white transition-colors" aria-label="Close modal">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+      <div id="modalContent">
+        <!-- Content will be dynamically inserted here -->
+      </div>
+    </div>
+  </div>
+
   <!-- ====== JavaScript ====== -->
+  <script>
+    // Project data
+    const projects = {
+      'youtube-product-crew': {
+        title: 'YouTube Product Crew',
+        description: 'A CrewAI-powered multi-agent system that automates YouTube product review content creation.',
+        additionalInfo: `
+          <p class="text-slate-300 mb-4">This innovative system leverages multiple AI agents working together to create comprehensive YouTube product review content. The system can generate:</p>
+          <ul class="list-disc list-inside text-slate-300 mb-4 space-y-2">
+            <li>Detailed research reports on products</li>
+            <li>Engaging video scripts with proper structure</li>
+            <li>SEO-optimized keywords, titles, and descriptions</li>
+            <li>Custom product images using DALL-E</li>
+          </ul>
+          <p class="text-slate-300 mb-4">The entire content creation process takes approximately 30 minutes and costs around $0.32, making it an efficient and cost-effective solution for content creators.</p>
+          <p class="text-slate-400 text-sm italic mb-4">Note: The demo version does not generate actual files to prevent excessive API usage and costs.</p>
+        `,
+        url: 'https://youtube-product-crew.onrender.com/',
+        icon: '🤖'
+      },
+      'nfl-picker': {
+        title: 'NFL Picker',
+        description: 'An AI-powered NFL team analysis and game prediction system using CrewAI.',
+        additionalInfo: `
+          <p class="text-slate-300 mb-4">This comprehensive NFL analysis tool provides in-depth insights for game predictions. When you select two teams, the system analyzes:</p>
+          <ul class="list-disc list-inside text-slate-300 mb-4 space-y-2">
+            <li>Team statistics and performance metrics</li>
+            <li>Current injury reports and player availability</li>
+            <li>Coaching strategies and historical matchups</li>
+            <li>AI-generated predictions based on comprehensive data analysis</li>
+          </ul>
+          <p class="text-slate-400 text-sm italic mb-4">Warning: The hosted version may occasionally timeout due to hosting limitations. A working desktop application is available upon request.</p>
+        `,
+        url: 'https://nfl-picker.onrender.com',
+        icon: '🏈'
+      },
+      'mebot': {
+        title: 'MeBot - Ask About Steven',
+        description: 'An AI-powered chatbot that answers questions about my experience, skills, projects, and background.',
+        additionalInfo: `
+          <p class="text-slate-300 mb-4">MeBot is an intelligent assistant built with cutting-edge AI technology to provide accurate information about my professional background. Key features include:</p>
+          <ul class="list-disc list-inside text-slate-300 mb-4 space-y-2">
+            <li>RAG (Retrieval-Augmented Generation) technology for accurate responses</li>
+            <li>Access to my bio, resume, and GitHub repositories</li>
+            <li>Natural language understanding for conversational interactions</li>
+            <li>Built with LangChain, OpenAI, and FastAPI</li>
+          </ul>
+          <p class="text-slate-300 mb-4">You can ask MeBot about my experience, skills, projects, education, or anything else related to my professional background. It's designed to provide comprehensive and accurate information to help you learn more about me.</p>
+        `,
+        url: 'https://portfoliosite-6lw5.onrender.com/',
+        icon: '💬'
+      }
+    };
+
+    // Open project modal
+    function openProjectModal(projectId) {
+      const project = projects[projectId];
+      if (!project) return;
+
+      const modal = document.getElementById('projectModal');
+      const modalContent = document.getElementById('modalContent');
+
+      modalContent.innerHTML = `
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center text-2xl">
+            ${project.icon}
+          </div>
+          <h2 class="text-2xl font-bold text-white">${project.title}</h2>
+        </div>
+        <p class="text-slate-300 mb-6">${project.description}</p>
+        <div class="mb-6">
+          ${project.additionalInfo}
+        </div>
+        <div class="border-t border-slate-700 pt-4">
+          <a href="${project.url}" target="_blank" rel="noopener noreferrer" 
+             class="inline-block px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition-colors font-medium">
+            Visit Project →
+          </a>
+        </div>
+      `;
+
+      modal.classList.add('show');
+      document.body.style.overflow = 'hidden';
+    }
+
+    // Close project modal
+    function closeProjectModal() {
+      const modal = document.getElementById('projectModal');
+      modal.classList.remove('show');
+      document.body.style.overflow = '';
+    }
+
+    // Close modal when clicking outside
+    document.getElementById('projectModal').addEventListener('click', function(e) {
+      if (e.target === this) {
+        closeProjectModal();
+      }
+    });
+
+    // Close modal on Escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        const modal = document.getElementById('projectModal');
+        if (modal.classList.contains('show')) {
+          closeProjectModal();
+        }
+      }
+    });
+  </script>
   <script>
     // Set current year
     document.getElementById('year').textContent = new Date().getFullYear();
@@ -806,12 +918,8 @@
       }
     }
 
-    // Determine chatbot API URL based on environment
-    // Use production URL if not on localhost, otherwise use localhost for development
-    const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-    const chatbotApiUrl = isLocalhost 
-      ? 'http://localhost:8000/api/ask'
-      : 'https://portfoliosite-6lw5.onrender.com/api/ask';
+    // Chatbot API URL - using Render production URL
+    const chatbotApiUrl = 'https://portfoliosite-6lw5.onrender.com/api/ask';
 
     // Handle form submission
     chatForm.addEventListener('submit', async (e) => {
@@ -850,10 +958,7 @@
       } catch (error) {
         removeLoadingMessage();
         console.error('Error calling chatbot API:', error);
-        const errorMessage = isLocalhost
-          ? "Sorry, I'm having trouble connecting to the server. Please make sure the backend server is running on http://localhost:8000"
-          : "Sorry, I'm having trouble connecting to the chatbot server. Please try again later or contact me if the issue persists.";
-        addMessage(errorMessage);
+        addMessage("Sorry, I'm having trouble connecting to the chatbot server. Please try again later or contact me if the issue persists.");
       } finally {
         chatInput.disabled = false;
         chatInput.focus();
