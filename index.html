@@ -196,12 +196,14 @@
 
         <!-- Project Card 4 -->
         <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700 hover:border-blue-500 transition-all hover:shadow-xl hover:shadow-blue-500/20">
-          <div class="w-12 h-12 bg-orange-500 rounded-lg mb-4 flex items-center justify-center text-2xl">
-            🔧
+          <div class="w-12 h-12 bg-green-500 rounded-lg mb-4 flex items-center justify-center text-2xl">
+            📰
           </div>
-          <h3 class="text-xl font-semibold text-white mb-2">Coming Soon</h3>
-          <p class="text-slate-400 mb-4">More exciting projects are on the way. Check back soon for updates!</p>
-          <p class="text-slate-500 text-xs italic">Stay tuned for new projects and updates.</p>
+          <h3 class="text-xl font-semibold text-white mb-2">AI News Aggregator</h3>
+          <p class="text-slate-400 mb-4">Generate engaging AI-powered blog posts in minutes. AI agents research your topic and create 600-1000 word blog posts formatted with Jekyll front matter.</p>
+          <div class="flex flex-col gap-2 mb-3">
+            <button onclick="openProjectModal('ai-news-aggregator')" class="text-blue-400 hover:text-blue-300 transition-colors text-left">View Project →</button>
+          </div>
         </div>
 
         <!-- Project Card 5 -->
@@ -530,7 +532,8 @@
           <p class="text-slate-400 text-sm italic mb-4">Note: The demo version does not generate actual files to prevent excessive API usage and costs.</p>
         `,
         url: 'https://youtube-product-crew.onrender.com/',
-        icon: '🤖'
+        icon: '🤖',
+        iconColor: 'bg-blue-500'
       },
       'nfl-picker': {
         title: 'NFL Picker',
@@ -546,7 +549,8 @@
           <p class="text-slate-400 text-sm italic mb-4">Warning: The hosted version may occasionally timeout due to hosting limitations. A working desktop application is available upon request.</p>
         `,
         url: 'https://nfl-picker.onrender.com',
-        icon: '🏈'
+        icon: '🏈',
+        iconColor: 'bg-purple-500'
       },
       'mebot': {
         title: 'MeBot - Ask About Steven',
@@ -562,7 +566,26 @@
           <p class="text-slate-300 mb-4">You can ask MeBot about my experience, skills, projects, education, or anything else related to my professional background. It's designed to provide comprehensive and accurate information to help you learn more about me.</p>
         `,
         url: 'https://portfoliosite-6lw5.onrender.com/',
-        icon: '💬'
+        icon: '💬',
+        iconColor: 'bg-cyan-500'
+      },
+      'ai-news-aggregator': {
+        title: 'AI News Aggregator',
+        description: 'Generate engaging AI-powered blog posts in minutes using CrewAI agents.',
+        additionalInfo: `
+          <p class="text-slate-300 mb-4">This innovative AI-powered tool automates the entire blog post creation process. Simply provide a topic, and the system will:</p>
+          <ul class="list-disc list-inside text-slate-300 mb-4 space-y-2">
+            <li>Research your topic using AI agents</li>
+            <li>Generate comprehensive 600-1000 word blog posts</li>
+            <li>Format content with Jekyll front matter for easy publishing</li>
+            <li>Complete the process in just 1-3 minutes</li>
+          </ul>
+          <p class="text-slate-300 mb-4">The system is cost-effective, typically costing only $0.01-0.05 per blog post, making it an ideal solution for content creators, bloggers, and businesses looking to scale their content production.</p>
+          <p class="text-slate-400 text-sm italic mb-4">Powered by CrewAI and GPT-4o-mini for efficient and high-quality content generation.</p>
+        `,
+        url: 'https://ai-news-aggregator-gb92.onrender.com',
+        icon: '📰',
+        iconColor: 'bg-green-500'
       }
     };
 
@@ -576,7 +599,7 @@
 
       modalContent.innerHTML = `
         <div class="flex items-center gap-3 mb-4">
-          <div class="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center text-2xl">
+          <div class="w-12 h-12 ${project.iconColor || 'bg-blue-500'} rounded-lg flex items-center justify-center text-2xl">
             ${project.icon}
           </div>
           <h2 class="text-2xl font-bold text-white">${project.title}</h2>
