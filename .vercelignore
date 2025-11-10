@@ -6,13 +6,9 @@ __pycache__/
 requirements.txt
 render.yaml
 chatbot_server.py
-nfl_picker_api.py
 test_*.py
 *.lock
 pyproject.toml
-data/
-nfl_picker/
 chatbot/
 CHATBOT_*.md
-NFL_PICKER_*.md
 
