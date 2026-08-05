@@ -67,6 +67,10 @@ Set these under the Vercel project's **Settings → Environment Variables**. A l
 
 `api/_context.js` is the single source of truth the bot reads from — there's no build step pulling from `bio.txt` automatically. To change what the bot knows, edit the `BIO_TEXT` / `RESUME_TEXT` constants in `api/_context.js` directly and redeploy (push to `main`). `assets/MeBot/bio.txt` is kept as the original source text for reference but isn't read at request time.
 
+**⚠️ Nothing keeps `_context.js` in sync with the résumé automatically.** `RESUME_TEXT` is a hand-written summary, not text extracted from `assets/Steven_Tikas_AI_Solutions_Engineer.pdf` — updating one does not update the other. This already caused a real bug once: the résumé said "15+ years," the site's About section said "20+ years," and the chatbot (reading the stale `RESUME_TEXT`) sided with the résumé, contradicting the page it was sitting on.
+
+**Whenever the résumé changes** (a new job, project, cert, or reworded experience claim — including regenerating the PDF from `D:\Resume\Steven_Tikas_AI_Solutions_Engineer.docx`), also open `api/_context.js` and update `RESUME_TEXT` to match. Same goes for `BIO_TEXT` if the underlying facts in `assets/MeBot/bio.txt` change. There's no tooling that catches drift between these — it's a manual step, easy to forget, and the failure mode is quiet (MeBot just answers with outdated info; nothing errors).
+
 ## Loose ends / things worth deciding on
 
 - **`chatbot/index.html`** — a standalone full-page version of the chat UI, originally served by the old Render backend's root route. It's excluded from the Vercel deploy via `.vercelignore` and isn't linked from anywhere live. The "MeBot" project card on the site itself has its demo link disabled (`url: null` in `index.html`) pointing at this. Either wire it up to the new `/api/ask` endpoint and re-enable the card, or remove it.
