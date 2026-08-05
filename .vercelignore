@@ -1,14 +1,3 @@
-# Ignore Python files and directories for Vercel deployment
-*.py
-*.pyc
-__pycache__/
-*.db
-requirements.txt
-render.yaml
-chatbot_server.py
-test_*.py
-*.lock
-pyproject.toml
+# Standalone MeBot demo page - not deployed (linked from the disabled MeBot project card)
 chatbot/
 CHATBOT_*.md
-

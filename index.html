@@ -798,10 +798,7 @@
 
   <!-- Chat UI JavaScript -->
   <script>
-    // MeBot's backend (portfoliosite-6lw5.onrender.com) is suspended, so the widget
-    // can only answer "I'm having trouble connecting to the chatbot server."
-    // Set this back to true once the Render service is live again.
-    const CHATBOT_ENABLED = false;
+    const CHATBOT_ENABLED = true;
 
     const chatBubble = document.getElementById('chatBubble');
     const chatPanel = document.getElementById('chatPanel');
@@ -907,8 +904,8 @@
       }
     }
 
-    // Chatbot API URL - using Render production URL
-    const chatbotApiUrl = 'https://portfoliosite-6lw5.onrender.com/api/ask';
+    // Chatbot API URL - same-origin Vercel serverless function
+    const chatbotApiUrl = '/api/ask';
 
     // Handle form submission
     chatForm.addEventListener('submit', async (e) => {
