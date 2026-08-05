@@ -11,12 +11,16 @@
   <meta property="og:url" content="https://steventikas.online" />
   <meta property="og:title" content="Steven Tikas - AI Solutions Engineer" />
   <meta property="og:description" content="AI Solutions Engineer building production AI applications end to end: LLM integration, multi-agent orchestration, retrieval, and full-stack products." />
-  <meta property="og:image" content="https://steventikas.online/images/cover_image.jpg" />
+  <meta property="og:image" content="https://steventikas.online/images/og-banner.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Steven Tikas - AI Solutions Engineer" />
   <meta name="twitter:description" content="AI Solutions Engineer building production AI applications end to end: LLM integration, multi-agent orchestration, retrieval, and full-stack products." />
-  <meta name="twitter:image" content="https://steventikas.online/images/cover_image.jpg" />
+  <meta name="twitter:image" content="https://steventikas.online/images/og-banner.png" />
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232563eb'/%3E%3Ctext x='32' y='43' font-family='Arial, Helvetica, sans-serif' font-size='26' font-weight='700' fill='%23ffffff' text-anchor='middle'%3EST%3C/text%3E%3C/svg%3E" />
 
   <!-- Tailwind CDN for quick styling -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -49,12 +53,13 @@
     </div>
         
         <!-- Desktop Navigation -->
-        <div class="hidden md:flex space-x-8">
+        <div class="hidden md:flex items-center space-x-8">
           <a href="#home" class="nav-link text-slate-300 hover:text-blue-400 transition-colors">Home</a>
           <a href="#about" class="nav-link text-slate-300 hover:text-blue-400 transition-colors">About</a>
           <a href="#projects" class="nav-link text-slate-300 hover:text-blue-400 transition-colors">Projects</a>
           <a href="#skills" class="nav-link text-slate-300 hover:text-blue-400 transition-colors">Skills</a>
           <a href="#contact" class="nav-link text-slate-300 hover:text-blue-400 transition-colors">Contact</a>
+          <a href="assets/Steven_Tikas_AI_Solutions_Engineer.pdf" target="_blank" rel="noopener noreferrer" class="px-4 py-1.5 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition-colors text-sm font-medium">Resume</a>
       </div>
 
         <!-- Mobile Menu Button -->
@@ -73,6 +78,7 @@
           <a href="#projects" class="block px-4 py-2 text-slate-300 hover:text-blue-400 transition-colors">Projects</a>
           <a href="#skills" class="block px-4 py-2 text-slate-300 hover:text-blue-400 transition-colors">Skills</a>
           <a href="#contact" class="block px-4 py-2 text-slate-300 hover:text-blue-400 transition-colors">Contact</a>
+          <a href="assets/Steven_Tikas_AI_Solutions_Engineer.pdf" target="_blank" rel="noopener noreferrer" class="block mx-4 mt-2 px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition-colors font-medium text-center">Resume</a>
         </div>
       </div>
     </div>
@@ -144,9 +150,6 @@
         <div class="space-y-6">
           <p class="text-lg text-slate-300 leading-relaxed">
             Steven Tikas is an AI solutions engineer and full-stack developer who ships complete products &mdash; not demos. Recent work spans a nine-module SaaS platform with Stripe billing, a document-AI pipeline that reads architectural drawing sets, and a self-hosted family platform running local and cloud models side by side.
-          </p>
-          <p class="text-lg text-slate-300 leading-relaxed">
-            I specialize in creating AI solutions for small and large projects. I combine analytical thinking and technical skills to deliver outstanding results.
           </p>
           <p class="text-lg text-slate-300 leading-relaxed">
             I come from a background of over 20 years of experience in Technical Support, Customer Service, and Manufacturing.  I'm looking to the future and see how AI is changing everything and want to be part of a company that sees that as well and is ready to use it to better their business and their customers lives.
@@ -380,6 +383,17 @@
             <span class="px-3 py-1 bg-slate-700/60 text-slate-200 rounded-full text-sm">Active Directory</span>
             <span class="px-3 py-1 bg-slate-700/60 text-slate-200 rounded-full text-sm">Linux</span>
           </div>
+        </div>
+      </div>
+
+      <div class="mt-8 pt-6 border-t border-slate-800 text-center">
+        <p class="text-slate-500 text-sm mb-3">Certifications</p>
+        <div class="flex flex-wrap justify-center gap-2">
+          <span class="px-3 py-1 bg-slate-800/60 text-slate-300 rounded-full text-sm border border-slate-700">Microsoft Azure Fundamentals (AZ-900)</span>
+          <span class="px-3 py-1 bg-slate-800/60 text-slate-300 rounded-full text-sm border border-slate-700">Google Cybersecurity Certificate</span>
+          <span class="px-3 py-1 bg-slate-800/60 text-slate-300 rounded-full text-sm border border-slate-700">Advanced Business Analytics</span>
+          <span class="px-3 py-1 bg-slate-800/60 text-slate-300 rounded-full text-sm border border-slate-700">Foundations of Project Management</span>
+          <span class="px-3 py-1 bg-slate-800/60 text-slate-300 rounded-full text-sm border border-slate-700">Agile and Scrum Development</span>
         </div>
       </div>
     </div>
@@ -643,7 +657,7 @@
 
     // Typing animation
     const typingText = document.getElementById('typing-text');
-    const professions = ['an AI Solutions Engineer', 'a Full-Stack Developer', 'a Problem Solver', 'an All-Around Great Guy'];
+    const professions = ['an AI Solutions Engineer', 'a Full-Stack Developer', 'a Problem Solver', 'a Navy Veteran'];
     let currentProfession = 0;
     let currentChar = 0;
     let isDeleting = false;
