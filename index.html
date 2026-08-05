@@ -39,7 +39,6 @@
         <div class="hidden md:flex space-x-8">
           <a href="#home" class="nav-link text-slate-300 hover:text-blue-400 transition-colors">Home</a>
           <a href="#about" class="nav-link text-slate-300 hover:text-blue-400 transition-colors">About</a>
-          <a href="#blog" class="nav-link text-slate-300 hover:text-blue-400 transition-colors">Blog</a>
           <a href="#projects" class="nav-link text-slate-300 hover:text-blue-400 transition-colors">Projects</a>
           <a href="#skills" class="nav-link text-slate-300 hover:text-blue-400 transition-colors">Skills</a>
           <a href="#contact" class="nav-link text-slate-300 hover:text-blue-400 transition-colors">Contact</a>
@@ -58,7 +57,6 @@
         <div class="py-4 space-y-2">
           <a href="#home" class="block px-4 py-2 text-slate-300 hover:text-blue-400 transition-colors">Home</a>
           <a href="#about" class="block px-4 py-2 text-slate-300 hover:text-blue-400 transition-colors">About</a>
-          <a href="#blog" class="block px-4 py-2 text-slate-300 hover:text-blue-400 transition-colors">Blog</a>
           <a href="#projects" class="block px-4 py-2 text-slate-300 hover:text-blue-400 transition-colors">Projects</a>
           <a href="#skills" class="block px-4 py-2 text-slate-300 hover:text-blue-400 transition-colors">Skills</a>
           <a href="#contact" class="block px-4 py-2 text-slate-300 hover:text-blue-400 transition-colors">Contact</a>
@@ -76,7 +74,7 @@
             Hello, I'm <span class="text-blue-400">Steven Tikas</span>
           </h1>
           <h2 class="text-2xl md:text-4xl text-slate-300 mb-6">
-            I'm a <span id="typing-text" class="text-blue-400"></span>
+            I'm <span id="typing-text" class="text-blue-400"></span>
         </h2>
           <p class="text-lg text-slate-400 mb-8 max-w-2xl">
             Welcome to my personal website where I showcase my work and skills.
@@ -108,7 +106,7 @@
       <div class="grid md:grid-cols-2 gap-12 items-start">
         <div class="space-y-6">
           <p class="text-lg text-slate-300 leading-relaxed">
-            Steven Tikas is a AI Context Engineer, Data Scientist, and web developer—constantly evolving and passionate about learning new frontiers.
+            Steven Tikas is an AI solutions engineer and full-stack developer who ships complete products &mdash; not demos. Recent work spans a nine-module SaaS platform with Stripe billing, a document-AI pipeline that reads architectural drawing sets, and a self-hosted family platform running local and cloud models side by side.
           </p>
           <p class="text-lg text-slate-300 leading-relaxed">
             I specialize in creating AI solutions for small and large projects. I combine analytical thinking and technical skills to deliver outstanding results.
@@ -141,7 +139,9 @@
             </div>
           </div>
           <div class="mt-6">
-            <a href="assets/Steven_Tikas_IT_Operations_Analyst.pdf" target="_blank" rel="noopener noreferrer" class="w-full inline-block px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition-colors font-medium text-center">
+            <!-- NOTE: export Steven_Tikas_AI_Solutions_Engineer.docx to PDF with this exact
+                 filename and place it in assets/ — this link 404s until that file exists. -->
+            <a href="assets/Steven_Tikas_AI_Solutions_Engineer.pdf" target="_blank" rel="noopener noreferrer" class="w-full inline-block px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition-colors font-medium text-center">
               Resume
             </a>
           </div>
@@ -157,6 +157,42 @@
       <p class="text-center text-slate-400 mb-12">Some of my recent work</p>
 
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Project Card: Worxstance -->
+        <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700 hover:border-blue-500 transition-all hover:shadow-xl hover:shadow-blue-500/20">
+          <div class="w-12 h-12 bg-indigo-500 rounded-lg mb-4 flex items-center justify-center text-2xl">
+            🧭
+          </div>
+          <h3 class="text-xl font-semibold text-white mb-2">Worxstance</h3>
+          <p class="text-slate-400 mb-4">A nine-module AI career workspace built end to end: job discovery with match scoring across three data sources, resume tailoring, skill-gap analysis, and offer negotiation &mdash; plus Stripe billing, usage limits, and per-user data isolation.</p>
+          <div class="flex flex-col gap-2 mb-3">
+            <button onclick="openProjectModal('worxstance')" class="text-blue-400 hover:text-blue-300 transition-colors text-left">View Project →</button>
+          </div>
+        </div>
+
+        <!-- Project Card: SpecAnalyzer -->
+        <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700 hover:border-blue-500 transition-all hover:shadow-xl hover:shadow-blue-500/20">
+          <div class="w-12 h-12 bg-amber-500 rounded-lg mb-4 flex items-center justify-center text-2xl">
+            📐
+          </div>
+          <h3 class="text-xl font-semibold text-white mb-2">SpecAnalyzer</h3>
+          <p class="text-slate-400 mb-4">A document-AI pipeline that reads architectural drawing sets: routes every page, parses window and door schedules, and computes glazing quantities deterministically &mdash; with source sheet, page, and confidence attached to every extracted row.</p>
+          <div class="flex flex-col gap-2 mb-3">
+            <button onclick="openProjectModal('specanalyzer')" class="text-blue-400 hover:text-blue-300 transition-colors text-left">View Project →</button>
+          </div>
+        </div>
+
+        <!-- Project Card: Tikas Family Digital Home -->
+        <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700 hover:border-blue-500 transition-all hover:shadow-xl hover:shadow-blue-500/20">
+          <div class="w-12 h-12 bg-emerald-500 rounded-lg mb-4 flex items-center justify-center text-2xl">
+            🏠
+          </div>
+          <h3 class="text-xl font-semibold text-white mb-2">Tikas Family Digital Home</h3>
+          <p class="text-slate-400 mb-4">A self-hosted family platform delivered spec-first across nine phases. Private questions run entirely on local models so household data never leaves the network; general questions route to Claude behind an explicit confirm step. 433 automated tests.</p>
+          <div class="flex flex-col gap-2 mb-3">
+            <button onclick="openProjectModal('tikas-family-digital-home')" class="text-blue-400 hover:text-blue-300 transition-colors text-left">View Project →</button>
+          </div>
+        </div>
+
         <!-- Project Card 1 -->
         <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700 hover:border-blue-500 transition-all hover:shadow-xl hover:shadow-blue-500/20">
           <div class="w-12 h-12 bg-blue-500 rounded-lg mb-4 flex items-center justify-center text-2xl">
@@ -206,25 +242,6 @@
           </div>
         </div>
 
-        <!-- Project Card 5 -->
-        <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700 hover:border-blue-500 transition-all hover:shadow-xl hover:shadow-blue-500/20">
-          <div class="w-12 h-12 bg-cyan-500 rounded-lg mb-4 flex items-center justify-center text-2xl">
-            🎨
-          </div>
-          <h3 class="text-xl font-semibold text-white mb-2">Coming Soon</h3>
-          <p class="text-slate-400 mb-4">More exciting projects are on the way. Check back soon for updates!</p>
-          <p class="text-slate-500 text-xs italic">Stay tuned for new projects and updates.</p>
-        </div>
-
-        <!-- Project Card 6 -->
-        <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700 hover:border-blue-500 transition-all hover:shadow-xl hover:shadow-blue-500/20">
-          <div class="w-12 h-12 bg-pink-500 rounded-lg mb-4 flex items-center justify-center text-2xl">
-            🌐
-          </div>
-          <h3 class="text-xl font-semibold text-white mb-2">Coming Soon</h3>
-          <p class="text-slate-400 mb-4">More exciting projects are on the way. Check back soon for updates!</p>
-          <p class="text-slate-500 text-xs italic">Stay tuned for new projects and updates.</p>
-        </div>
       </div>
     </div>
   </section>
@@ -233,231 +250,100 @@
   <section id="skills" class="py-20 px-4 sm:px-6 lg:px-8 bg-slate-900/50">
     <div class="max-w-7xl mx-auto">
       <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">My Skills</h2>
-      <p class="text-center text-slate-400 mb-12">Technologies and tools I work with</p>
+      <p class="text-center text-slate-400 mb-12">What I've actually built with</p>
 
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Programming & Data -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- AI & LLM -->
         <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700">
-          <h3 class="text-xl font-semibold text-white mb-4">Programming & Data</h3>
-          <div class="space-y-4">
-            <div>
-              <div class="flex justify-between items-center mb-1">
-                <div class="flex items-center gap-2">
-                  <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/python.svg" alt="Python" class="skill-icon" style="filter: brightness(0) saturate(100%) invert(59%) sepia(95%) saturate(1352%) hue-rotate(173deg) brightness(101%) contrast(101%);">
-                  <span class="text-slate-300">Python</span>
-                </div>
-                <span class="text-slate-400 text-sm">Advanced</span>
-              </div>
-              <div class="w-full bg-slate-700 rounded-full h-2">
-                <div class="bg-blue-500 h-2 rounded-full skill-progress" style="width: 90%"></div>
-              </div>
-            </div>
-            <div>
-              <div class="flex justify-between items-center mb-1">
-                <div class="flex items-center gap-2">
-                  <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/mysql.svg" alt="SQL" class="skill-icon" style="filter: brightness(0) saturate(100%) invert(59%) sepia(95%) saturate(1352%) hue-rotate(173deg) brightness(101%) contrast(101%);">
-                  <span class="text-slate-300">SQL</span>
-                </div>
-                <span class="text-slate-400 text-sm">Advanced</span>
-              </div>
-              <div class="w-full bg-slate-700 rounded-full h-2">
-                <div class="bg-blue-500 h-2 rounded-full skill-progress" style="width: 85%"></div>
-              </div>
-            </div>
+          <h3 class="text-xl font-semibold text-white mb-4">AI &amp; LLM</h3>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 bg-slate-700/60 text-slate-200 rounded-full text-sm">Anthropic Claude</span>
+            <span class="px-3 py-1 bg-slate-700/60 text-slate-200 rounded-full text-sm">OpenAI</span>
+            <span class="px-3 py-1 bg-slate-700/60 text-slate-200 rounded-full text-sm">Google Gemini</span>
+            <span class="px-3 py-1 bg-slate-700/60 text-slate-200 rounded-full text-sm">DeepSeek</span>
+            <span class="px-3 py-1 bg-slate-700/60 text-slate-200 rounded-full text-sm">Ollama (local inference)</span>
+            <span class="px-3 py-1 bg-slate-700/60 text-slate-200 rounded-full text-sm">CrewAI</span>
+            <span class="px-3 py-1 bg-slate-700/60 text-slate-200 rounded-full text-sm">LangChain</span>
+            <span class="px-3 py-1 bg-slate-700/60 text-slate-200 rounded-full text-sm">Structured output</span>
+            <span class="px-3 py-1 bg-slate-700/60 text-slate-200 rounded-full text-sm">Tool calling</span>
+            <span class="px-3 py-1 bg-slate-700/60 text-slate-200 rounded-full text-sm">RAG</span>
+            <span class="px-3 py-1 bg-slate-700/60 text-slate-200 rounded-full text-sm">Vector search (sqlite-vec)</span>
+            <span class="px-3 py-1 bg-slate-700/60 text-slate-200 rounded-full text-sm">Model routing &amp; cost control</span>
           </div>
         </div>
 
-        <!-- Modeling & Machine Learning -->
+        <!-- Languages -->
         <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700">
-          <h3 class="text-xl font-semibold text-white mb-4">Modeling & Machine Learning</h3>
-          <div class="space-y-4">
-            <div>
-              <div class="flex justify-between items-center mb-1">
-                <div class="flex items-center gap-2">
-                  <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/tensorflow.svg" alt="TensorFlow" class="skill-icon" style="filter: brightness(0) saturate(100%) invert(59%) sepia(95%) saturate(1352%) hue-rotate(173deg) brightness(101%) contrast(101%);">
-                  <span class="text-slate-300">TensorFlow</span>
-                </div>
-                <span class="text-slate-400 text-sm">Advanced</span>
-              </div>
-              <div class="w-full bg-slate-700 rounded-full h-2">
-                <div class="bg-blue-500 h-2 rounded-full skill-progress" style="width: 80%"></div>
-              </div>
-            </div>
-            <div>
-              <div class="flex justify-between items-center mb-1">
-                <div class="flex items-center gap-2">
-                  <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/scikitlearn.svg" alt="scikit-learn" class="skill-icon" style="filter: brightness(0) saturate(100%) invert(59%) sepia(95%) saturate(1352%) hue-rotate(173deg) brightness(101%) contrast(101%);">
-                  <span class="text-slate-300">scikit-learn</span>
-                </div>
-                <span class="text-slate-400 text-sm">Advanced</span>
-              </div>
-              <div class="w-full bg-slate-700 rounded-full h-2">
-                <div class="bg-blue-500 h-2 rounded-full skill-progress" style="width: 80%"></div>
-              </div>
-            </div>
-            <div>
-              <div class="flex justify-between items-center mb-1">
-                <div class="flex items-center gap-2">
-                  <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/matplotlib.svg" alt="matplotlib" class="skill-icon" style="filter: brightness(0) saturate(100%) invert(59%) sepia(95%) saturate(1352%) hue-rotate(173deg) brightness(101%) contrast(101%);">
-                  <span class="text-slate-300">matplotlib</span>
-                </div>
-                <span class="text-slate-400 text-sm">Advanced</span>
-              </div>
-              <div class="w-full bg-slate-700 rounded-full h-2">
-                <div class="bg-blue-500 h-2 rounded-full skill-progress" style="width: 80%"></div>
-              </div>
-            </div>
+          <h3 class="text-xl font-semibold text-white mb-4">Languages</h3>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 bg-slate-700/60 text-slate-200 rounded-full text-sm">Python</span>
+            <span class="px-3 py-1 bg-slate-700/60 text-slate-200 rounded-full text-sm">TypeScript</span>
+            <span class="px-3 py-1 bg-slate-700/60 text-slate-200 rounded-full text-sm">JavaScript</span>
+            <span class="px-3 py-1 bg-slate-700/60 text-slate-200 rounded-full text-sm">SQL</span>
+            <span class="px-3 py-1 bg-slate-700/60 text-slate-200 rounded-full text-sm">HTML / CSS</span>
+            <span class="px-3 py-1 bg-slate-700/60 text-slate-200 rounded-full text-sm">Shell / PowerShell</span>
           </div>
         </div>
 
-        <!-- MLOps & Deployment -->
+        <!-- Web & App -->
         <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700">
-          <h3 class="text-xl font-semibold text-white mb-4">MLOps & Deployment</h3>
-          <div class="space-y-4">
-            <div>
-              <div class="flex justify-between items-center mb-1">
-                <div class="flex items-center gap-2">
-                  <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/docker.svg" alt="Docker" class="skill-icon" style="filter: brightness(0) saturate(100%) invert(59%) sepia(95%) saturate(1352%) hue-rotate(173deg) brightness(101%) contrast(101%);">
-                  <span class="text-slate-300">Docker</span>
-                </div>
-                <span class="text-slate-400 text-sm">Advanced</span>
-              </div>
-              <div class="w-full bg-slate-700 rounded-full h-2">
-                <div class="bg-blue-500 h-2 rounded-full skill-progress" style="width: 80%"></div>
-              </div>
-            </div>
-            <div>
-              <div class="flex justify-between items-center mb-1">
-                <div class="flex items-center gap-2">
-                  <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/fastapi.svg" alt="FastAPI" class="skill-icon" style="filter: brightness(0) saturate(100%) invert(59%) sepia(95%) saturate(1352%) hue-rotate(173deg) brightness(101%) contrast(101%);">
-                  <span class="text-slate-300">FastAPI</span>
-                </div>
-                <span class="text-slate-400 text-sm">Advanced</span>
-              </div>
-              <div class="w-full bg-slate-700 rounded-full h-2">
-                <div class="bg-blue-500 h-2 rounded-full skill-progress" style="width: 80%"></div>
-              </div>
-            </div>
+          <h3 class="text-xl font-semibold text-white mb-4">Web &amp; App</h3>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 bg-slate-700/60 text-slate-200 rounded-full text-sm">React</span>
+            <span class="px-3 py-1 bg-slate-700/60 text-slate-200 rounded-full text-sm">Next.js</span>
+            <span class="px-3 py-1 bg-slate-700/60 text-slate-200 rounded-full text-sm">Django</span>
+            <span class="px-3 py-1 bg-slate-700/60 text-slate-200 rounded-full text-sm">FastAPI</span>
+            <span class="px-3 py-1 bg-slate-700/60 text-slate-200 rounded-full text-sm">Node.js</span>
+            <span class="px-3 py-1 bg-slate-700/60 text-slate-200 rounded-full text-sm">Tailwind CSS</span>
+            <span class="px-3 py-1 bg-slate-700/60 text-slate-200 rounded-full text-sm">React Native (Expo)</span>
+            <span class="px-3 py-1 bg-slate-700/60 text-slate-200 rounded-full text-sm">Gradio</span>
           </div>
         </div>
 
-        <!-- Professional Skills -->
+        <!-- Data & Cloud -->
         <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700">
-          <h3 class="text-xl font-semibold text-white mb-4">Professional Skills</h3>
-          <div class="space-y-4">
-            <div>
-              <div class="flex justify-between items-center mb-1">
-                <div class="flex items-center gap-2">
-                  <svg class="skill-icon" fill="currentColor" viewBox="0 0 24 24" style="color: #60a5fa;">
-                    <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/>
-                  </svg>
-                  <span class="text-slate-300">Communication</span>
-                </div>
-                <span class="text-slate-400 text-sm">Advanced</span>
-              </div>
-              <div class="w-full bg-slate-700 rounded-full h-2">
-                <div class="bg-blue-500 h-2 rounded-full skill-progress" style="width: 80%"></div>
-              </div>
-            </div>
-            <div>
-              <div class="flex justify-between items-center mb-1">
-                <div class="flex items-center gap-2">
-                  <svg class="skill-icon" fill="currentColor" viewBox="0 0 24 24" style="color: #60a5fa;">
-                    <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
-                  </svg>
-                  <span class="text-slate-300">Teamwork</span>
-                </div>
-                <span class="text-slate-400 text-sm">Advanced</span>
-              </div>
-              <div class="w-full bg-slate-700 rounded-full h-2">
-                <div class="bg-blue-500 h-2 rounded-full skill-progress" style="width: 80%"></div>
-              </div>
-            </div>
-            <div>
-              <div class="flex justify-between items-center mb-1">
-                <div class="flex items-center gap-2">
-                  <svg class="skill-icon" fill="currentColor" viewBox="0 0 24 24" style="color: #60a5fa;">
-                    <path d="M9 21c0 .5.4 1 1 1h4c.6 0 1-.5 1-1v-1H9v1zm3-19C8.1 2 5 5.1 5 9c0 2.4 1.2 4.5 3 5.7V17c0 .5.4 1 1 1h6c.6 0 1-.5 1-1v-2.3c1.8-1.3 3-3.4 3-5.7 0-3.9-3.1-7-7-7z"/>
-                  </svg>
-                  <span class="text-slate-300">Problem Solving</span>
-                </div>
-                <span class="text-slate-400 text-sm">Advanced</span>
-              </div>
-              <div class="w-full bg-slate-700 rounded-full h-2">
-                <div class="bg-blue-500 h-2 rounded-full skill-progress" style="width: 80%"></div>
-              </div>
-            </div>
-            <div>
-              <div class="flex justify-between items-center mb-1">
-                <div class="flex items-center gap-2">
-                  <svg class="skill-icon" fill="currentColor" viewBox="0 0 24 24" style="color: #60a5fa;">
-                    <path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9c.83 0 1.5-.67 1.5-1.5 0-.39-.15-.74-.39-1.01-.23-.26-.38-.61-.38-.99 0-.83.67-1.5 1.5-1.5H16c2.76 0 5-2.24 5-5 0-4.42-4.03-8-9-8zm-5.5 9c-.83 0-1.5-.67-1.5-1.5S5.67 9 6.5 9 8 9.67 8 10.5 7.33 12 6.5 12zm3-4C8.67 8 8 7.33 8 6.5S8.67 5 9.5 5 11 5.67 11 6.5 10.33 8 9.5 8zm5 0c-.83 0-1.5-.67-1.5-1.5S13.67 5 14.5 5 16 5.67 16 6.5 15.33 8 14.5 8zm3 4c-.83 0-1.5-.67-1.5-1.5S16.67 9 17.5 9 19 9.67 19 10.5 18.33 12 17.5 12z"/>
-                  </svg>
-                  <span class="text-slate-300">Creativity</span>
-                </div>
-                <span class="text-slate-400 text-sm">Advanced</span>
-              </div>
-              <div class="w-full bg-slate-700 rounded-full h-2">
-                <div class="bg-blue-500 h-2 rounded-full skill-progress" style="width: 80%"></div>
-              </div>
-            </div>
+          <h3 class="text-xl font-semibold text-white mb-4">Data &amp; Cloud</h3>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 bg-slate-700/60 text-slate-200 rounded-full text-sm">PostgreSQL</span>
+            <span class="px-3 py-1 bg-slate-700/60 text-slate-200 rounded-full text-sm">SQLite</span>
+            <span class="px-3 py-1 bg-slate-700/60 text-slate-200 rounded-full text-sm">Firebase</span>
+            <span class="px-3 py-1 bg-slate-700/60 text-slate-200 rounded-full text-sm">Firestore</span>
+            <span class="px-3 py-1 bg-slate-700/60 text-slate-200 rounded-full text-sm">Cloud Functions</span>
+            <span class="px-3 py-1 bg-slate-700/60 text-slate-200 rounded-full text-sm">Microsoft Azure</span>
+            <span class="px-3 py-1 bg-slate-700/60 text-slate-200 rounded-full text-sm">AWS Textract</span>
+            <span class="px-3 py-1 bg-slate-700/60 text-slate-200 rounded-full text-sm">Vercel</span>
+            <span class="px-3 py-1 bg-slate-700/60 text-slate-200 rounded-full text-sm">Render</span>
+            <span class="px-3 py-1 bg-slate-700/60 text-slate-200 rounded-full text-sm">Stripe</span>
           </div>
         </div>
 
-        <!-- Tools & Platforms -->
+        <!-- Testing & Quality -->
         <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700">
-          <h3 class="text-xl font-semibold text-white mb-4">Tools & Platforms</h3>
-          <div class="space-y-4">
-            <div>
-              <div class="flex justify-between items-center mb-1">
-                <div class="flex items-center gap-2">
-                  <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/git.svg" alt="Git" class="skill-icon" style="filter: brightness(0) saturate(100%) invert(59%) sepia(95%) saturate(1352%) hue-rotate(173deg) brightness(101%) contrast(101%);">
-                  <span class="text-slate-300">Git</span>
-                </div>
-                <span class="text-slate-400 text-sm">Advanced</span>
-              </div>
-              <div class="w-full bg-slate-700 rounded-full h-2">
-                <div class="bg-blue-500 h-2 rounded-full skill-progress" style="width: 80%"></div>
-              </div>
-            </div>
-            <div>
-              <div class="flex justify-between items-center mb-1">
-                <div class="flex items-center gap-2">
-                  <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/jupyter.svg" alt="Jupyter" class="skill-icon" style="filter: brightness(0) saturate(100%) invert(59%) sepia(95%) saturate(1352%) hue-rotate(173deg) brightness(101%) contrast(101%);">
-                  <span class="text-slate-300">Jupyter</span>
-                </div>
-                <span class="text-slate-400 text-sm">Advanced</span>
-              </div>
-              <div class="w-full bg-slate-700 rounded-full h-2">
-                <div class="bg-blue-500 h-2 rounded-full skill-progress" style="width: 80%"></div>
-              </div>
-            </div>
-            <div>
-              <div class="flex justify-between items-center mb-1">
-                <div class="flex items-center gap-2">
-                  <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/visualstudiocode.svg" alt="VS Code" class="skill-icon" style="filter: brightness(0) saturate(100%) invert(59%) sepia(95%) saturate(1352%) hue-rotate(173deg) brightness(101%) contrast(101%);">
-                  <span class="text-slate-300">VS Code</span>
-                </div>
-                <span class="text-slate-400 text-sm">Advanced</span>
-              </div>
-              <div class="w-full bg-slate-700 rounded-full h-2">
-                <div class="bg-blue-500 h-2 rounded-full skill-progress" style="width: 80%"></div>
-              </div>
-            </div>
-            <div>
-              <div class="flex justify-between items-center mb-1">
-                <div class="flex items-center gap-2">
-                  <svg class="skill-icon" fill="currentColor" viewBox="0 0 24 24" style="color: #60a5fa;">
-                    <path d="M13.64 21.97c-.35.06-.67.03-.97 0l-2.02-.39c-.28-.06-.5-.2-.6-.39l-1.01-1.97c-.18-.35-.5-.6-.9-.73l-2.01-.74c-.4-.14-.8-.35-1.1-.64L2.5 15.5c-.28-.28-.4-.67-.34-1.05l.39-2.02c.06-.28.2-.5.39-.6l1.97-1.01c.35-.18.6-.5.73-.9l.74-2.01c.14-.4.35-.8.64-1.1L8.5 2.84c.28-.28.67-.4 1.05-.34l2.02.39c.28.06.5.2.6.39l1.01 1.97c.18.35.5.6.9.73l2.01.74c.4.14.8.35 1.1.64l1.55 1.55c.28.28.4.67.34 1.05l-.39 2.02c-.06.28-.2.5-.39.6l-1.97 1.01c-.35.18-.6.5-.73.9l-.74 2.01c-.14.4-.35.8-.64 1.1l-1.55 1.55c-.28.28-.67.4-1.05.34z"/>
-                  </svg>
-                  <span class="text-slate-300">Cursor</span>
-                </div>
-                <span class="text-slate-400 text-sm">Advanced</span>
-              </div>
-              <div class="w-full bg-slate-700 rounded-full h-2">
-                <div class="bg-blue-500 h-2 rounded-full skill-progress" style="width: 80%"></div>
-              </div>
-            </div>
+          <h3 class="text-xl font-semibold text-white mb-4">Testing &amp; Quality</h3>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 bg-slate-700/60 text-slate-200 rounded-full text-sm">Vitest</span>
+            <span class="px-3 py-1 bg-slate-700/60 text-slate-200 rounded-full text-sm">Cypress</span>
+            <span class="px-3 py-1 bg-slate-700/60 text-slate-200 rounded-full text-sm">pytest</span>
+            <span class="px-3 py-1 bg-slate-700/60 text-slate-200 rounded-full text-sm">Golden-fixture regression</span>
+            <span class="px-3 py-1 bg-slate-700/60 text-slate-200 rounded-full text-sm">ESLint</span>
+            <span class="px-3 py-1 bg-slate-700/60 text-slate-200 rounded-full text-sm">Git</span>
+            <span class="px-3 py-1 bg-slate-700/60 text-slate-200 rounded-full text-sm">VS Code</span>
+            <span class="px-3 py-1 bg-slate-700/60 text-slate-200 rounded-full text-sm">Cursor</span>
+          </div>
+        </div>
+
+        <!-- Security & Ops -->
+        <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700">
+          <h3 class="text-xl font-semibold text-white mb-4">Security &amp; Ops</h3>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 bg-slate-700/60 text-slate-200 rounded-full text-sm">Role-based access control</span>
+            <span class="px-3 py-1 bg-slate-700/60 text-slate-200 rounded-full text-sm">AES-256-GCM encryption</span>
+            <span class="px-3 py-1 bg-slate-700/60 text-slate-200 rounded-full text-sm">OAuth 2.0</span>
+            <span class="px-3 py-1 bg-slate-700/60 text-slate-200 rounded-full text-sm">Session auth</span>
+            <span class="px-3 py-1 bg-slate-700/60 text-slate-200 rounded-full text-sm">SSO / MFA</span>
+            <span class="px-3 py-1 bg-slate-700/60 text-slate-200 rounded-full text-sm">Encrypted backup &amp; restore</span>
+            <span class="px-3 py-1 bg-slate-700/60 text-slate-200 rounded-full text-sm">Active Directory</span>
+            <span class="px-3 py-1 bg-slate-700/60 text-slate-200 rounded-full text-sm">Linux</span>
           </div>
         </div>
       </div>
@@ -484,6 +370,17 @@
           <h3 class="text-xl font-semibold text-white mb-2">Location</h3>
           <p class="text-slate-300">Jacksonville, FL USA</p>
         </div>
+      </div>
+
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="https://www.linkedin.com/in/steven-m-tikas/" target="_blank" rel="noopener noreferrer"
+           class="px-6 py-3 bg-slate-800 hover:bg-slate-700 text-white rounded-lg transition-colors font-medium border border-slate-700">
+          LinkedIn
+        </a>
+        <a href="https://github.com/StevenMTikas" target="_blank" rel="noopener noreferrer"
+           class="px-6 py-3 bg-slate-800 hover:bg-slate-700 text-white rounded-lg transition-colors font-medium border border-slate-700">
+          GitHub
+        </a>
       </div>
     </div>
   </section>
@@ -516,7 +413,63 @@
   <!-- ====== JavaScript ====== -->
   <script>
     // Project data
+    // NOTE: `url` is optional. Leave it out (or null) and the "Visit Project"
+    // button is simply not rendered — better than sending a visitor to a dead link.
     const projects = {
+      'worxstance': {
+        title: 'Worxstance',
+        description: 'An AI-powered career workspace covering the full job-search lifecycle, from discovery through offer negotiation.',
+        additionalInfo: `
+          <p class="text-slate-300 mb-4">A nine-module SaaS platform built end to end, organized under a Feature-Sliced Design architecture. What it does:</p>
+          <ul class="list-disc list-inside text-slate-300 mb-4 space-y-2">
+            <li>Combines Adzuna, Jooble, and a Python Cloud Function scraping Indeed into one normalized feed, scored on skills, experience, role relevance, and location</li>
+            <li>Tailors resumes and generates cover letters against a single Master Profile</li>
+            <li>Analyzes skill gaps against target roles and tracks progress as you close them</li>
+            <li>Builds STAR stories, runs mock interviews, manages follow-ups, and models total compensation</li>
+          </ul>
+          <p class="text-slate-300 mb-4">Every AI feature runs through Gemini 2.5 Flash with defined response schemas, so model output parses reliably as structured data rather than free text. Google Search grounding supplies real-time job and compensation data.</p>
+          <p class="text-slate-300 mb-4">The commercial layer is real: Stripe billing, Firestore usage counters enforcing free-tier limits, and Firebase security rules guaranteeing per-user data isolation &mdash; instrumented with GA4, PostHog, and Sentry, and covered by Vitest unit tests and Cypress end-to-end tests.</p>
+          <p class="text-slate-400 text-sm italic mb-4">React 18 &middot; TypeScript &middot; Vite &middot; Tailwind &middot; Firebase &middot; Gemini 2.5 Flash &middot; Stripe</p>
+        `,
+        icon: '🧭',
+        iconColor: 'bg-indigo-500'
+      },
+      'specanalyzer': {
+        title: 'SpecAnalyzer',
+        description: 'A document-AI pipeline that reads architectural drawing sets and computes glazing quantities with verifiable provenance.',
+        additionalInfo: `
+          <p class="text-slate-300 mb-4">Built for the construction takeoff problem I spent twelve years around in the commercial glass industry. The pipeline:</p>
+          <ul class="list-disc list-inside text-slate-300 mb-4 space-y-2">
+            <li>Classifies and routes every page of a drawing set with PyMuPDF, splitting specifications from drawings</li>
+            <li>Extracts window and door schedules via camelot, with an AWS Textract fallback on low-confidence pages</li>
+            <li>Rasterizes elevation sheets at high DPI for Claude to read</li>
+            <li>Computes quantities deterministically, separating spandrel area from vision glazing</li>
+          </ul>
+          <p class="text-slate-300 mb-4">The design principle that matters most: the language model stays out of the math. Quantities come only from parsed schedule rows plus elevation takeoff, and an unparseable dimension stays null rather than being guessed. Every extracted row carries its source sheet, page index, bounding box, and confidence score, so an estimator can trace any number back to exactly where it came from.</p>
+          <p class="text-slate-300 mb-4">A per-trade profile registry means adding a new trade is a configuration change rather than a rewrite, and a golden-fixture regression harness guards accuracy against sample drawing sets.</p>
+          <p class="text-slate-400 text-sm italic mb-4">Next.js orchestrator &middot; Python FastAPI sidecar &middot; PyMuPDF &middot; camelot &middot; AWS Textract &middot; Anthropic Claude</p>
+        `,
+        icon: '📐',
+        iconColor: 'bg-amber-500'
+      },
+      'tikas-family-digital-home': {
+        title: 'Tikas Family Digital Home',
+        description: 'A self-hosted family platform running local and cloud models side by side, delivered spec-first across nine phases.',
+        additionalInfo: `
+          <p class="text-slate-300 mb-4">Specification set first &mdash; module documents, data model, decision log, phased milestones &mdash; then nine phases built against it: calendar, tasks, documents and photos, search, notifications, administration, and an AI assistant.</p>
+          <p class="text-slate-300 mb-4">The privacy design is the interesting part. Questions that need household data run entirely on local Ollama models, so that data never leaves the network. General questions route to Claude behind an explicit preview-and-confirm step showing exactly what would be transmitted before it goes.</p>
+          <ul class="list-disc list-inside text-slate-300 mb-4 space-y-2">
+            <li>Semantic search over all content using sqlite-vec and local embeddings</li>
+            <li>Role-based permissions with per-folder grants, and AES-256-GCM encryption at rest</li>
+            <li>Encrypted backup and restore built on SQLite's online backup API</li>
+            <li>An Android companion app that syncs photo metadata first and fetches files on demand</li>
+            <li>433 automated tests, plus live end-to-end verification of every feature</li>
+          </ul>
+          <p class="text-slate-400 text-sm italic mb-4">Next.js 15 &middot; React 19 &middot; TypeScript &middot; better-sqlite3 &middot; sqlite-vec &middot; Ollama &middot; Anthropic SDK &middot; Expo</p>
+        `,
+        icon: '🏠',
+        iconColor: 'bg-emerald-500'
+      },
       'youtube-product-crew': {
         title: 'YouTube Product Crew',
         description: 'A CrewAI-powered multi-agent system that automates YouTube product review content creation.',
@@ -531,7 +484,8 @@
           <p class="text-slate-300 mb-4">The entire content creation process takes approximately 30 minutes and costs around $0.32, making it an efficient and cost-effective solution for content creators.</p>
           <p class="text-slate-400 text-sm italic mb-4">Note: The demo version does not generate actual files to prevent excessive API usage and costs.</p>
         `,
-        url: 'https://youtube-product-crew.onrender.com/',
+        // Render service suspended as of 2026-08-04 — restore the URL once the deploy is live again.
+        url: null, // 'https://youtube-product-crew.onrender.com/',
         icon: '🤖',
         iconColor: 'bg-blue-500'
       },
@@ -548,7 +502,8 @@
           </ul>
           <p class="text-slate-400 text-sm italic mb-4">Warning: The hosted version may occasionally timeout due to hosting limitations. A working desktop application is available upon request.</p>
         `,
-        url: 'https://nfl-picker.onrender.com',
+        // Render service suspended as of 2026-08-04 — restore the URL once the deploy is live again.
+        url: null, // 'https://nfl-picker.onrender.com',
         icon: '🏈',
         iconColor: 'bg-purple-500'
       },
@@ -565,7 +520,8 @@
           </ul>
           <p class="text-slate-300 mb-4">You can ask MeBot about my experience, skills, projects, education, or anything else related to my professional background. It's designed to provide comprehensive and accurate information to help you learn more about me.</p>
         `,
-        url: 'https://portfoliosite-6lw5.onrender.com/',
+        // Render service suspended as of 2026-08-04 — restore the URL once the deploy is live again.
+        url: null, // 'https://portfoliosite-6lw5.onrender.com/',
         icon: '💬',
         iconColor: 'bg-cyan-500'
       },
@@ -583,7 +539,8 @@
           <p class="text-slate-300 mb-4">The system is cost-effective, typically costing only $0.01-0.05 per blog post, making it an ideal solution for content creators, bloggers, and businesses looking to scale their content production.</p>
           <p class="text-slate-400 text-sm italic mb-4">Powered by CrewAI and GPT-4o-mini for efficient and high-quality content generation.</p>
         `,
-        url: 'https://ai-news-aggregator-gb92.onrender.com',
+        // Render service suspended as of 2026-08-04 — restore the URL once the deploy is live again.
+        url: null, // 'https://ai-news-aggregator-gb92.onrender.com',
         icon: '📰',
         iconColor: 'bg-green-500'
       }
@@ -608,12 +565,13 @@
         <div class="mb-6">
           ${project.additionalInfo}
         </div>
+        ${project.url ? `
         <div class="border-t border-slate-700 pt-4">
-          <a href="${project.url}" target="_blank" rel="noopener noreferrer" 
+          <a href="${project.url}" target="_blank" rel="noopener noreferrer"
              class="inline-block px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition-colors font-medium">
             Visit Project →
           </a>
-        </div>
+        </div>` : ''}
       `;
 
       modal.classList.add('show');
@@ -650,7 +608,7 @@
 
     // Typing animation
     const typingText = document.getElementById('typing-text');
-    const professions = ['AI Context Engineer', 'Data Scientist', 'Web Developer', 'Problem Solver', 'All-Around Great Guy'];
+    const professions = ['an AI Solutions Engineer', 'a Full-Stack Developer', 'a Problem Solver', 'an All-Around Great Guy'];
     let currentProfession = 0;
     let currentChar = 0;
     let isDeleting = false;
@@ -842,8 +800,18 @@
 
   <!-- Chat UI JavaScript -->
   <script>
+    // MeBot's backend (portfoliosite-6lw5.onrender.com) is suspended, so the widget
+    // can only answer "I'm having trouble connecting to the chatbot server."
+    // Set this back to true once the Render service is live again.
+    const CHATBOT_ENABLED = false;
+
     const chatBubble = document.getElementById('chatBubble');
     const chatPanel = document.getElementById('chatPanel');
+
+    if (!CHATBOT_ENABLED) {
+      chatBubble.style.display = 'none';
+      chatPanel.style.display = 'none';
+    }
     const closeChat = document.getElementById('closeChat');
     const chatForm = document.getElementById('chatForm');
     const chatInput = document.getElementById('chatInput');
