@@ -37,7 +37,7 @@ const RESUME_TEXT = `STEVEN TIKAS — AI SOLUTIONS ENGINEER
 Jacksonville, FL | stevenmtikas@gmail.com | linkedin.com/in/steven-m-tikas | steventikas.online
 
 SUMMARY
-Builder of production AI applications end to end — LLM integration, multi-agent orchestration, retrieval, and the full-stack products wrapped around them — backed by 15+ years of customer-facing technical support. Self-directed portfolio spans five model providers (OpenAI, Anthropic, Google Gemini, DeepSeek, and local inference via Ollama), schema-validated structured output, tool calling, RAG over vector search, and cost-controlled agent pipelines. B.S. in Information Technology.
+Builder of production AI applications end to end — LLM integration, multi-agent orchestration, retrieval, and the full-stack products wrapped around them — backed by 20+ years of professional experience across technical support, customer service, and manufacturing. Self-directed portfolio spans five model providers (OpenAI, Anthropic, Google Gemini, DeepSeek, and local inference via Ollama), schema-validated structured output, tool calling, RAG over vector search, and cost-controlled agent pipelines. B.S. in Information Technology.
 
 TECHNICAL SKILLS
 AI & LLM: OpenAI, Anthropic Claude, Google Gemini, DeepSeek, local models via Ollama; CrewAI multi-agent orchestration; structured output with response schemas; tool/function calling; RAG with vector embeddings; model routing, caching, and cost control.
