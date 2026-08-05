@@ -56,6 +56,8 @@ Tikas Family Digital Home — Self-Hosted AI Platform: a nine-phase, spec-first 
 
 YouTube Product Crew — Multi-Agent Content Pipeline: parallel research agents across OpenAI, DeepSeek, and Gemini with a synthesis manager agent, producing scripts, SEO keywords, and titles from a single product input. Stack: Python, CrewAI, OpenAI, DeepSeek, Gemini, DALL-E 3, Gradio.
 
+AI News Aggregator — Blog Post Generator: a CrewAI pipeline where a researcher agent and a blog-writer agent turn a single topic into a 600-1000 word, conversational blog post formatted with Jekyll front matter for direct GitHub Pages publishing. Runs via a web interface or the command line; costs about $0.01-0.05 per post on GPT-4o-mini. Stack: Python, CrewAI, GPT-4o-mini, FastAPI.
+
 PROFESSIONAL EXPERIENCE
 Technical Support Analyst — IT Support Center (Remote), Aug 2021–Oct 2024 and Mar 2025–Present. Resolves escalated technical issues, serves as Senior Technical Advisor and trainer, handles 15–35 support contacts per day.
 Technical Support Analyst — Availity (contract via Insight Global), Oct 2024–Feb 2025. Supported healthcare providers and payers on a national claims platform.
