@@ -26,5 +26,4 @@ His Facebook page https://www.facebook.com/steven.tikas
 My mother's name is Carmella
 I have 2 sisters: Kristin and Amy
 Portfolio Site URL: https://github.com/StevenMTikas/PortfolioSite
-NFL Picker App: https://github.com/StevenMTikas/nfl_picker
 YouTube App: https://github.com/StevenMTikas/youtube_product_crew
