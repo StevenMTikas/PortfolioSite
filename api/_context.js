@@ -43,7 +43,7 @@ TECHNICAL SKILLS
 AI & LLM: OpenAI, Anthropic Claude, Google Gemini, DeepSeek, local models via Ollama; CrewAI multi-agent orchestration; structured output with response schemas; tool/function calling; RAG with vector embeddings; model routing, caching, and cost control.
 Languages: TypeScript, JavaScript, Python, SQL, Shell/PowerShell.
 Web & App: React 18/19, Next.js 15, Django, FastAPI, Node.js, Tailwind CSS, React Native (Expo).
-Data & Cloud: PostgreSQL, SQLite, Firebase, Microsoft Azure, AWS Textract, Render, Stripe.
+Data & Cloud: PostgreSQL, SQLite, Firebase, Microsoft Azure, AWS Textract, Render.
 Testing & Quality: Vitest, Cypress, pytest, golden-fixture regression harnesses, TypeScript strict mode, ESLint.
 Security & Ops: Role-based access control, AES-256-GCM encryption at rest, OAuth 2.0, session authentication, SSO/MFA.
 
