@@ -149,7 +149,7 @@
       <div class="grid md:grid-cols-2 gap-12 items-start">
         <div class="space-y-6">
           <p class="text-lg text-slate-300 leading-relaxed">
-            Steven Tikas is an AI solutions engineer and full-stack developer who ships complete products &mdash; not demos. Recent work spans a nine-module SaaS platform with Stripe billing, a document-AI pipeline that reads architectural drawing sets, and a self-hosted family platform running local and cloud models side by side.
+            Steven Tikas is an AI solutions engineer and full-stack developer who ships complete products &mdash; not demos. Recent work spans an AI-powered career workspace covering resume tailoring, mock interviews, and networking outreach, a document-AI pipeline that reads architectural drawing sets, and a self-hosted family platform running local and cloud models side by side.
           </p>
           <p class="text-lg text-slate-300 leading-relaxed">
             I come from a background of over 20 years of experience in Technical Support, Customer Service, and Manufacturing.  I'm looking to the future and see how AI is changing everything and want to be part of a company that sees that as well and is ready to use it to better their business and their customers lives.
@@ -201,7 +201,7 @@
             🧭
           </div>
           <h3 class="text-xl font-semibold text-white mb-2">Worxstance</h3>
-          <p class="text-slate-400 mb-4">A nine-module AI career workspace built end to end: job discovery with match scoring across three data sources, resume tailoring, skill-gap analysis, and offer negotiation &mdash; plus Stripe billing, usage limits, and per-user data isolation.</p>
+          <p class="text-slate-400 mb-4">An AI career workspace covering resume tailoring, cover letters, skill-gap analysis, mock interviews, and networking outreach &mdash; with AI usage limits and per-user data isolation built in. Job discovery is fully built but hidden pending job-board legal clearance.</p>
           <div class="flex flex-col gap-2 mb-3">
             <button onclick="openProjectModal('worxstance')" class="text-blue-400 hover:text-blue-300 transition-colors text-left">View Project →</button>
           </div>
@@ -455,18 +455,20 @@
     const projects = {
       'worxstance': {
         title: 'Worxstance',
-        description: 'An AI-powered career workspace covering the full job-search lifecycle, from discovery through offer negotiation.',
+        description: 'An AI-powered career workspace covering resume tailoring, interview prep, and networking outreach, organized under a Feature-Sliced Design architecture.',
         additionalInfo: `
-          <p class="text-slate-300 mb-4">A nine-module SaaS platform built end to end, organized under a Feature-Sliced Design architecture. What it does:</p>
+          <p class="text-slate-300 mb-4">Eight of nine planned modules are live in production. What it does:</p>
           <ul class="list-disc list-inside text-slate-300 mb-4 space-y-2">
-            <li>Combines Adzuna, Jooble, and a Python Cloud Function scraping Indeed into one normalized feed, scored on skills, experience, role relevance, and location</li>
             <li>Tailors resumes and generates cover letters against a single Master Profile</li>
             <li>Analyzes skill gaps against target roles and tracks progress as you close them</li>
-            <li>Builds STAR stories, runs mock interviews, manages follow-ups, and models total compensation</li>
+            <li>Builds STAR stories for behavioral interviews and runs mock interviews with rubric-based feedback</li>
+            <li>Manages networking outreach and post-interview follow-ups through a CRM-style pipeline</li>
+            <li>Combines Adzuna, Jooble, and Google Search grounding into one match-scored job feed &mdash; fully built, but currently hidden from users pending legal clearance for job board usage</li>
           </ul>
-          <p class="text-slate-300 mb-4">Every AI feature runs through Gemini 2.5 Flash with defined response schemas, so model output parses reliably as structured data rather than free text. Google Search grounding supplies real-time job and compensation data.</p>
-          <p class="text-slate-300 mb-4">The commercial layer is real: Stripe billing, Firestore usage counters enforcing free-tier limits, and Firebase security rules guaranteeing per-user data isolation &mdash; instrumented with GA4, PostHog, and Sentry, and covered by Vitest unit tests and Cypress end-to-end tests.</p>
-          <p class="text-slate-400 text-sm italic mb-4">React 18 &middot; TypeScript &middot; Vite &middot; Tailwind &middot; Firebase &middot; Gemini 2.5 Flash &middot; Stripe</p>
+          <p class="text-slate-300 mb-4">Every AI feature runs through Gemini 2.5 Flash with defined response schemas, so model output parses reliably as structured data rather than free text.</p>
+          <p class="text-slate-300 mb-4">Usage is metered through Firestore-backed AI credit counters, and Firebase security rules enforce per-user data isolation &mdash; instrumented with Firebase Analytics (GA4) and PostHog, and covered by 521 Vitest unit tests plus Cypress end-to-end tests. There's no billing yet: Stripe was part of the original plan but was never integrated, so the app currently has no payment processing.</p>
+          <p class="text-slate-400 text-sm italic mb-4">Note: Offer Negotiator (a total-compensation calculator) is still on the roadmap &mdash; a planning doc exists, but no code has been written yet.</p>
+          <p class="text-slate-400 text-sm italic mb-4">React 19 &middot; TypeScript &middot; Vite &middot; Tailwind &middot; Firebase &middot; Gemini 2.5 Flash</p>
         `,
         icon: '🧭',
         iconColor: 'bg-indigo-500'
