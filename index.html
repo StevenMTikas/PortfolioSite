@@ -203,7 +203,7 @@
           <h3 class="text-xl font-semibold text-white mb-2">Worxstance</h3>
           <p class="text-slate-400 mb-4">An AI career workspace covering resume tailoring, cover letters, skill-gap analysis, mock interviews, and networking outreach &mdash; with AI usage limits and per-user data isolation built in. Job discovery is fully built but hidden pending job-board legal clearance.</p>
           <div class="flex flex-col gap-2 mb-3">
-            <button onclick="openProjectModal('worxstance')" class="text-blue-400 hover:text-blue-300 transition-colors text-left">View Project →</button>
+            <button onclick="openProjectModal('worxstance')" class="text-blue-400 hover:text-blue-300 transition-colors text-left">View Project Details →</button>
           </div>
         </div>
 
@@ -215,7 +215,7 @@
           <h3 class="text-xl font-semibold text-white mb-2">SpecAnalyzer</h3>
           <p class="text-slate-400 mb-4">A document-AI pipeline that reads architectural drawing sets: routes every page, parses window and door schedules, and computes glazing quantities deterministically &mdash; with source sheet, page, and confidence attached to every extracted row.</p>
           <div class="flex flex-col gap-2 mb-3">
-            <button onclick="openProjectModal('specanalyzer')" class="text-blue-400 hover:text-blue-300 transition-colors text-left">View Project →</button>
+            <button onclick="openProjectModal('specanalyzer')" class="text-blue-400 hover:text-blue-300 transition-colors text-left">View Project Details →</button>
           </div>
         </div>
 
@@ -227,7 +227,7 @@
           <h3 class="text-xl font-semibold text-white mb-2">Tikas Family Digital Home</h3>
           <p class="text-slate-400 mb-4">A self-hosted family platform delivered spec-first across nine phases. Private questions run entirely on local models so household data never leaves the network; general questions route to Claude behind an explicit confirm step. 433 automated tests.</p>
           <div class="flex flex-col gap-2 mb-3">
-            <button onclick="openProjectModal('tikas-family-digital-home')" class="text-blue-400 hover:text-blue-300 transition-colors text-left">View Project →</button>
+            <button onclick="openProjectModal('tikas-family-digital-home')" class="text-blue-400 hover:text-blue-300 transition-colors text-left">View Project Details →</button>
           </div>
         </div>
 
@@ -239,7 +239,7 @@
           <h3 class="text-xl font-semibold text-white mb-2">YouTube Product Crew</h3>
           <p class="text-slate-400 mb-4">A CrewAI-powered multi-agent system that automates YouTube product review content creation. Generates research reports, scripts, SEO keywords, titles, descriptions, and product images for a project which is then easily turned into a great looking product video</p>
           <div class="flex flex-col gap-2 mb-3">
-            <button onclick="openProjectModal('youtube-product-crew')" class="text-blue-400 hover:text-blue-300 transition-colors text-left">View Project →</button>
+            <button onclick="openProjectModal('youtube-product-crew')" class="text-blue-400 hover:text-blue-300 transition-colors text-left">View Project Details →</button>
             <a href="https://youtu.be/EE7fQ6xisac" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 transition-colors text-sm">📹 Watch Example Video →</a>
           </div>
         </div>
@@ -252,7 +252,7 @@
           <h3 class="text-xl font-semibold text-white mb-2">MeBot - Ask About Steven </h3>
           <p class="text-slate-400 mb-4">An AI-powered chatbot that answers questions about my experience, skills, projects, and background. Built with LangChain, OpenAI, and FastAPI, using RAG (Retrieval-Augmented Generation) to provide accurate information from my bio, resume, and GitHub repositories.</p>
           <div class="flex flex-col gap-2 mb-3">
-            <button onclick="openProjectModal('mebot')" class="text-blue-400 hover:text-blue-300 transition-colors text-left">View Project →</button>
+            <button onclick="openProjectModal('mebot')" class="text-blue-400 hover:text-blue-300 transition-colors text-left">View Project Details →</button>
           </div>
         </div>
 
@@ -264,7 +264,7 @@
           <h3 class="text-xl font-semibold text-white mb-2">AI News Aggregator</h3>
           <p class="text-slate-400 mb-4">Generate engaging AI-powered blog posts in minutes. AI agents research your topic and create 600-1000 word blog posts formatted with Jekyll front matter.</p>
           <div class="flex flex-col gap-2 mb-3">
-            <button onclick="openProjectModal('ai-news-aggregator')" class="text-blue-400 hover:text-blue-300 transition-colors text-left">View Project →</button>
+            <button onclick="openProjectModal('ai-news-aggregator')" class="text-blue-400 hover:text-blue-300 transition-colors text-left">View Project Details →</button>
           </div>
         </div>
 
@@ -524,6 +524,7 @@
         `,
         // Render service suspended as of 2026-08-04 — restore the URL once the deploy is live again.
         url: null, // 'https://youtube-product-crew.onrender.com/',
+        readmeUrl: 'https://github.com/StevenMTikas/youtube_product_crew/blob/main/README.md',
         icon: '🤖',
         iconColor: 'bg-blue-500'
       },
@@ -542,6 +543,7 @@
         `,
         // Render service suspended as of 2026-08-04 — restore the URL once the deploy is live again.
         url: null, // 'https://portfoliosite-6lw5.onrender.com/',
+        readmeUrl: 'https://github.com/StevenMTikas/PortfolioSite/blob/main/README.md',
         icon: '💬',
         iconColor: 'bg-cyan-500'
       },
@@ -561,6 +563,7 @@
         `,
         // Render service suspended as of 2026-08-04 — restore the URL once the deploy is live again.
         url: null, // 'https://ai-news-aggregator-gb92.onrender.com',
+        readmeUrl: 'https://github.com/StevenMTikas/AI_news_aggregator/blob/main/README.md',
         icon: '📰',
         iconColor: 'bg-green-500'
       }
@@ -581,6 +584,11 @@
           </div>
           <h2 class="text-2xl font-bold text-white">${project.title}</h2>
         </div>
+        ${project.readmeUrl ? `
+        <a href="${project.readmeUrl}" target="_blank" rel="noopener noreferrer"
+           class="inline-flex items-center gap-1.5 text-sm text-slate-400 hover:text-blue-400 transition-colors mb-4">
+          📄 View README on GitHub →
+        </a>` : ''}
         <p class="text-slate-300 mb-6">${project.description}</p>
         <div class="mb-6">
           ${project.additionalInfo}
