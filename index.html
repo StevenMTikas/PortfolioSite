@@ -530,19 +530,17 @@
       },
       'mebot': {
         title: 'MeBot - Ask About Steven',
-        description: 'An AI-powered chatbot that answers questions about my experience, skills, projects, and background.',
+        description: 'The chat widget on this page — a same-origin AI assistant that answers questions about my experience, skills, and projects.',
         additionalInfo: `
-          <p class="text-slate-300 mb-4">MeBot is an intelligent assistant built with cutting-edge AI technology to provide accurate information about my professional background. Key features include:</p>
+          <p class="text-slate-300 mb-4">This is the chat bubble in the bottom-right corner of this page &mdash; try it out. It's a single Vercel serverless function (<code>api/ask.js</code>) with zero npm dependencies, calling OpenAI's gpt-4o-mini directly.</p>
           <ul class="list-disc list-inside text-slate-300 mb-4 space-y-2">
-            <li>RAG (Retrieval-Augmented Generation) technology for accurate responses</li>
-            <li>Access to my bio, resume, and GitHub repositories</li>
-            <li>Natural language understanding for conversational interactions</li>
-            <li>Built with LangChain, OpenAI, and FastAPI</li>
+            <li>No vector store or RAG pipeline: the knowledge base (bio + resume) is small enough to stuff directly into the prompt</li>
+            <li>Fetches my public GitHub repos live for questions about current projects, cached in memory for 10 minutes</li>
+            <li>Same-origin call to <code>/api/ask</code> &mdash; no CORS, no separate backend to keep alive</li>
           </ul>
-          <p class="text-slate-300 mb-4">You can ask MeBot about my experience, skills, projects, education, or anything else related to my professional background. It's designed to provide comprehensive and accurate information to help you learn more about me.</p>
+          <p class="text-slate-300 mb-4">This replaced an earlier version built with LangChain, FastAPI, and a FAISS vector store, hosted on Render. That backend did real RAG over the same documents, but Render's free tier kept suspending it from inactivity, which silently broke the widget for stretches at a time. The current version has no server to suspend.</p>
         `,
-        // Render service suspended as of 2026-08-04 — restore the URL once the deploy is live again.
-        url: null, // 'https://portfoliosite-6lw5.onrender.com/',
+        // No url: MeBot isn't a separate hosted demo anymore, it's the chat bubble on this page.
         readmeUrl: 'https://github.com/StevenMTikas/PortfolioSite/blob/main/README.md',
         icon: '💬',
         iconColor: 'bg-cyan-500'
